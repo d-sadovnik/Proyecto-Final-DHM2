@@ -72,12 +72,10 @@ export const Login = () => {
                 />
               </div>
               <div className="form-link">
-              <a>
-                    <Link class="nav-link">
-                      Forgot your password?
-                    </Link>
-                  </a>
-                  </div>
+                <a>
+                  <Link to="/" className="nav-link">Forgot your password?</Link>
+                </a>
+              </div>
               <div className="field button-field">
                 <button onClick={handleClick}>Login</button>
               </div>
