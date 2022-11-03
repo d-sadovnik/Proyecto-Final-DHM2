@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import background from "../../img/dark-background-for-home.jpg";
-import ROUTINENATION from "../../img/ROUTINE NATION 2.png";
+import boostresults from "../../img/Home-boost-your-results.mp4";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
@@ -23,7 +23,7 @@ export const Home = () => {
         </a>
       </div>
       <div className="imgBox">
-        <img src={ROUTINENATION} alt="..." className="homepic" />
+        <video src={boostresults} type="video/mp4" />
       </div>
       {/* <div className="alert alert-info">
         {store.message ||
