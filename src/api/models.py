@@ -78,6 +78,8 @@ class Muscles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     muscle_name = db.Column(db.String(120), unique=True, nullable=False)
     excercise = db.relationship("Exercises", back_populates="muscle")
+    groupid=db.Column(db.Integer, db.ForeignKey("group_table.id"))
+    muscle_group=db.relationship("Muscle_group",back_populates="muscles")
 
     def __repr__(self):
         return f'{self.muscle_name}'
@@ -86,4 +88,19 @@ class Muscles(db.Model):
         return {
             "id":self.id,
             "muscles":self.muscles,
+        }
+
+class Muscle_group(db.Model):
+    __tablename__="group_table"
+    id = db.Column(db.Integer, primary_key=True)
+    muscle_group = db.Column(db.String(120), unique=True, nullable=False)
+    muscles = db.relationship("Muscles", back_populates="muscle_group")
+
+    def __repr__(self):
+        return f'{self.muscle_group}'
+
+    def serialize(self):
+        return { 
+            "id":self.id,
+            "muscle_group":self.muscle_group
         }
