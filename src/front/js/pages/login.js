@@ -12,35 +12,21 @@ export const Login = () => {
   const [accessToken, setAccessToken] = useState("");
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    const opts = {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const body = {
       email: email,
       password: password,
     };
-    fetch(
-      "https://3001-mauriciio89-jwt-1ku18w4m7lz.ws-us72.gitpod.io/api/token",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "cors",
-        body: JSON.stringify(opts),
-      }
-    )
+    console.log(body);
+    actions
+      .login(body)
       .then((resp) => {
-        if (resp.status === 200) return resp.json();
-        else alert("there has been some error");
-      })
-      .then((data) => {
-        // console.log(data);
-        localStorage.setItem("accessToken", data.accessToken);
-        console.log(localStorage.getItem("accessToken"));
-        console.log("Este es el token");
-        navigate("/private");
+        console.log(resp);
+        // navigate("/");
       })
       .catch((error) => {
-        console.error("there was an error!!!", error);
+        console.log(error);
       });
   };
 
@@ -54,7 +40,7 @@ export const Login = () => {
           <div className="form-content">
             <header>Login</header>
 
-            <form action="#">
+            <form onSubmit={onSubmit}>
               <div className="field input-field">
                 <input
                   type="text"
@@ -73,11 +59,13 @@ export const Login = () => {
               </div>
               <div className="form-link">
                 <a>
-                  <Link to="/" className="nav-link">Forgot your password?</Link>
+                  <Link to="/" className="nav-link">
+                    Forgot your password?
+                  </Link>
                 </a>
               </div>
               <div className="field button-field">
-                <button onClick={handleClick}>Login</button>
+                <button type="submit">Login</button>
               </div>
               <div className="form-link">
                 <span>
