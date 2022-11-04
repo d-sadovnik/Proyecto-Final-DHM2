@@ -14,10 +14,8 @@ class User(db.Model):
     last_name = db.Column(db.String(120), unique=True, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     profile = db.relationship("Profile", back_populates="user_custom_name", uselist=False)
-    tracker_id = db.Column(db.Integer, db.ForeignKey("trackerpred_table.id"))
-    tracker = db.relationship("Tracker_pred", back_populates="user")
-    freetracker_id = db.Column(db.Integer, db.ForeignKey("trackerfree_table.id"))
-    freetracker = db.relationship("Tracker_free", back_populates="user")
+    predtracker=db.relationship("Tracker_pred", back_populates="user")
+    freetracker=db.relationship("Tracker_free", back_populates="freeuser")
 
     def __repr__(self):
         return f'{self.user_custom_name}'
@@ -124,8 +122,9 @@ class Tracker_free(db.Model):
     total_distance=db.Column(db.Float, unique=False, nullable=False)
     daily_steps=db.Column(db.Float, unique=False, nullable=False)
     date = db.Column(db.Date, unique=True, nullable=False)
-    user=db.relationship("User", back_populates="freetracker")
     routine=db.relationship("Free_routine", back_populates="track_free")
+    freeuser_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
+    freeuser = db.relationship("User", back_populates="freetracker")
 
     def __repr__(self):
         return f'Rutina {self.date}'
@@ -185,7 +184,8 @@ class Tracker_pred(db.Model):
     total_distance=db.Column(db.Float, unique=False, nullable=False)
     daily_steps=db.Column(db.Float, unique=False, nullable=False)
     date = db.Column(db.Date, unique=True, nullable=False)
-    user=db.relationship("User", back_populates="tracker")
+    user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
+    user = db.relationship("User", back_populates="predtracker")
     routine=db.relationship("Predetermined_routines", back_populates="track_pred")
 
     def __repr__(self):
