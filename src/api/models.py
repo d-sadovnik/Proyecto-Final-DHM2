@@ -14,6 +14,8 @@ class User(db.Model):
     last_name = db.Column(db.String(120), unique=True, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     profile = db.relationship("Profile", back_populates="user_custom_name", uselist=False)
+    tracker_id = db.Column(db.Integer, db.ForeignKey("trackerpred_table.id"))
+    tracker = db.relationship("Tracker_pred", back_populates="user")
 
     def __repr__(self):
         return f'{self.user_custom_name}'
@@ -115,9 +117,9 @@ class Predetermined_routines(db.Model):
     routine_name = db.Column(db.String(120), unique=True, nullable=False)
     description= db.Column(db.String(500),unique=True)
     burnt_calories = db.Column(db.String(120), unique=False, nullable=False)
-    routine_id = db.Column(db.Integer, db.ForeignKey("group_table.id"))    
+    routine_id = db.Column(db.Integer, db.ForeignKey("group_table.id"))
     muscles_in_da_group=db.relationship("Muscle_group", back_populates="routine_names")
-
+   
     def __repr__(self):
         return f'{self.routine_name}'
     
@@ -135,8 +137,7 @@ class Tracker_pred(db.Model):
     total_distance=db.Column(db.Float, unique=False, nullable=False)
     daily_steps=db.Column(db.Float, unique=False, nullable=False)
     date = db.Column(db.Date, unique=True, nullable=False)
-    routine_id = db.Column(db.Integer, db.ForeignKey("predeterminedroutines_table.id"))
-    routine = db.relationship("Predetermined_routines", back_populates="description")
+    user=db.relationship("User", back_populates="tracker")
 
     def __repr__(self):
         return f'Rutina {self.date}'
