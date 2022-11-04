@@ -16,6 +16,8 @@ class User(db.Model):
     profile = db.relationship("Profile", back_populates="user_custom_name", uselist=False)
     tracker_id = db.Column(db.Integer, db.ForeignKey("trackerpred_table.id"))
     tracker = db.relationship("Tracker_pred", back_populates="user")
+    freetracker_id = db.Column(db.Integer, db.ForeignKey("trackerfree_table.id"))
+    freetracker = db.relationship("Tracker_free", back_populates="user")
 
     def __repr__(self):
         return f'{self.user_custom_name}'
@@ -41,7 +43,7 @@ class Profile(db.Model):
     user_custom_name = db.relationship("User", back_populates="profile")
 
     def __repr__(self):
-        return f'{self.name}'
+        return f'{self.user_custom_name}'
 
     def serialize(self):
         return {
@@ -83,6 +85,7 @@ class Muscles(db.Model):
     excercise = db.relationship("Exercises", back_populates="muscle")
     groupid = db.Column(db.Integer, db.ForeignKey("group_table.id"))
     muscle_group = db.relationship("Muscle_group", back_populates="muscles")
+    free_routines = db.relationship("Free_routine", back_populates="muscles_in_routine")
 
     def __repr__(self):
         return f'{self.muscle_name}'
@@ -91,6 +94,49 @@ class Muscles(db.Model):
         return {
             "id": self.id,
             "muscles": self.muscles,
+        }
+
+class Free_routine(db.Model):
+    __tablename__ = "freeroutine_table"
+    id = db.Column(db.Integer, primary_key=True)
+    routine_name = db.Column(db.String(120), unique=True, nullable=False)
+    description= db.Column(db.String(500),unique=True)
+    burnt_calories = db.Column(db.String(120), unique=False, nullable=False)
+    routine_id = db.Column(db.Integer, db.ForeignKey("muscles_table.id"))
+    muscles_in_routine=db.relationship("Muscles", back_populates="free_routines")
+    track_id=db.Column(db.Integer, db.ForeignKey("trackerfree_table.id"))
+    track_free=db.relationship("Tracker_free", back_populates="routine")
+
+    def __repr__(self):
+        return f'{self.routine_name}'
+    
+    def serialize(self):
+        return {
+            "id":self.id,
+            "routine_name":self.routine_name,
+            "burnt_calories":self.burnt_calories,
+        }
+
+class Tracker_free(db.Model):
+    __tablename__ = "trackerfree_table"
+    id = db.Column(db.Integer, primary_key=True)
+    burnt_cals = db.Column(db.Float, unique=False, nullable=False)
+    total_distance=db.Column(db.Float, unique=False, nullable=False)
+    daily_steps=db.Column(db.Float, unique=False, nullable=False)
+    date = db.Column(db.Date, unique=True, nullable=False)
+    user=db.relationship("User", back_populates="freetracker")
+    routine=db.relationship("Free_routine", back_populates="track_free")
+
+    def __repr__(self):
+        return f'Rutina {self.date}'
+    
+    def serialize(self):
+        return {
+            "id":self.id,
+            "burnt_cals":self.burnt_cals,
+            "total_distance":self.total_distance,
+            "daily_steps":self.daily_steps,
+            "date":self.date,
         }
 
 
@@ -119,6 +165,8 @@ class Predetermined_routines(db.Model):
     burnt_calories = db.Column(db.String(120), unique=False, nullable=False)
     routine_id = db.Column(db.Integer, db.ForeignKey("group_table.id"))
     muscles_in_da_group=db.relationship("Muscle_group", back_populates="routine_names")
+    track_id=db.Column(db.Integer, db.ForeignKey("trackerpred_table.id"))
+    track_pred=db.relationship("Tracker_pred", back_populates="routine")
    
     def __repr__(self):
         return f'{self.routine_name}'
@@ -138,6 +186,7 @@ class Tracker_pred(db.Model):
     daily_steps=db.Column(db.Float, unique=False, nullable=False)
     date = db.Column(db.Date, unique=True, nullable=False)
     user=db.relationship("User", back_populates="tracker")
+    routine=db.relationship("Predetermined_routines", back_populates="track_pred")
 
     def __repr__(self):
         return f'Rutina {self.date}'
