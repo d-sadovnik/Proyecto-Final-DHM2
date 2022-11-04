@@ -15,7 +15,7 @@ class User(db.Model):
     profile = db.relationship("Profile", back_populates="name", uselist=False)
 
     def __repr__(self):
-        return f'<User {self.email}>'
+        return f'<{self.email}>'
 
     def serialize(self):
         return {
@@ -37,7 +37,7 @@ class Profile(db.Model):
     name = db.relationship("User", back_populates="profile")
 
     def __repr__(self):
-        return f'<Profile {self.id}>'
+        return f'<{self.name}>'
 
     def serialize(self):
         return {
