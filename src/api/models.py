@@ -13,7 +13,7 @@ class User(db.Model):
     name = db.Column(db.String(120), unique=True, nullable=False)
     last_name = db.Column(db.String(120), unique=True, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
-    profile = db.relationship("Profile", back_populates="name", uselist=False)
+    profile = db.relationship("Profile", back_populates="user_custom_name", uselist=False)
 
     def __repr__(self):
         return f'{self.user_custom_name}'
@@ -36,7 +36,7 @@ class Profile(db.Model):
     weight = db.Column(db.Float, unique=True, nullable=False)
     bmi = db.Column(db.Float, unique=True, nullable=False)
     fat_percentage = db.Column(db.Float, unique=True, nullable=False)
-    name = db.relationship("User", back_populates="profile")
+    user_custom_name = db.relationship("User", back_populates="profile")
 
     def __repr__(self):
         return f'{self.name}'
@@ -54,7 +54,7 @@ class Profile(db.Model):
 
 
 class Exercises(db.Model):
-    __tablename__="exercises_table"
+    __tablename__ = "exercises_table"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
     description = db.Column(db.String(120), unique=False, nullable=False)
@@ -64,43 +64,66 @@ class Exercises(db.Model):
 
     def __repr__(self):
         return f'{self.name}'
-    
+
     def serialize(self):
-        return { 
-            "id":self.id,
-            "name":self.name,
-            "description":self.description,
-            "burnt_calories":self.burnt_calories,            
+        return {
+            "id": self.id,
+            "name": self.name,
+            "description": self.description,
+            "burnt_calories": self.burnt_calories,
         }
 
+
 class Muscles(db.Model):
-    __tablename__="muscles_table"
+    __tablename__ = "muscles_table"
     id = db.Column(db.Integer, primary_key=True)
     muscle_name = db.Column(db.String(120), unique=True, nullable=False)
     excercise = db.relationship("Exercises", back_populates="muscle")
-    groupid=db.Column(db.Integer, db.ForeignKey("group_table.id"))
-    muscle_group=db.relationship("Muscle_group",back_populates="muscles")
+    groupid = db.Column(db.Integer, db.ForeignKey("group_table.id"))
+    muscle_group = db.relationship("Muscle_group", back_populates="muscles")
 
     def __repr__(self):
         return f'{self.muscle_name}'
-    
+
     def serialize(self):
         return {
-            "id":self.id,
-            "muscles":self.muscles,
+            "id": self.id,
+            "muscles": self.muscles,
         }
 
+
 class Muscle_group(db.Model):
-    __tablename__="group_table"
+    __tablename__ = "group_table"
     id = db.Column(db.Integer, primary_key=True)
     muscle_group = db.Column(db.String(120), unique=True, nullable=False)
     muscles = db.relationship("Muscles", back_populates="muscle_group")
+    routine_names = db.relationship("Predetermined_routines", back_populates="muscles_in_da_group")
 
     def __repr__(self):
         return f'{self.muscle_group}'
 
     def serialize(self):
-        return { 
+        return {
+            "id": self.id,
+            "muscle_group": self.muscle_group
+        }
+
+
+class Predetermined_routines(db.Model):
+    __tablename__ = "predeterminedroutines_table"
+    id = db.Column(db.Integer, primary_key=True)
+    routine_name = db.Column(db.String(120), unique=True, nullable=False)
+    description= db.Column(db.String(500),unique=True)
+    burnt_calories = db.Column(db.String(120), unique=False, nullable=False)
+    routine_id = db.Column(db.Integer, db.ForeignKey("group_table.id"))    
+    muscles_in_da_group=db.relationship("Muscle_group", back_populates="routine_names")
+
+    def __repr__(self):
+        return f'{self.routine_name}'
+    
+    def serialize(self):
+        return {
             "id":self.id,
-            "muscle_group":self.muscle_group
+            "routine_name":self.routine_name,
+            "burnt_calories":self.burnt_calories,
         }
