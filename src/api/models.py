@@ -58,7 +58,7 @@ class Exercises(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
     description = db.Column(db.String(120), unique=False, nullable=False)
-    burnt_calories = db-Column(db.Float, unique=False, nullable=False)
+    burnt_calories = db.Column(db.Float, unique=False, nullable=False)
     muscle_id = db.Column(db.Integer, db.ForeignKey("muscles_table.id"))
     muscle = db.relationship("Muscles", back_populates="excercise")
 
@@ -126,4 +126,26 @@ class Predetermined_routines(db.Model):
             "id":self.id,
             "routine_name":self.routine_name,
             "burnt_calories":self.burnt_calories,
+        }
+    
+class Tracker_pred(db.Model):
+    __tablename__ = "trackerpred_table"
+    id = db.Column(db.Integer, primary_key=True)
+    burnt_cals = db.Column(db.Float, unique=False, nullable=False)
+    total_distance=db.Column(db.Float, unique=False, nullable=False)
+    daily_steps=db.Column(db.Float, unique=False, nullable=False)
+    date = db.Column(db.Date, unique=True, nullable=False)
+    routine_id = db.Column(db.Integer, db.ForeignKey("predeterminedroutines_table.id"))
+    routine = db.relationship("Predetermined_routines", back_populates="description")
+
+    def __repr__(self):
+        return f'Rutina {self.date}'
+    
+    def serialize(self):
+        return {
+            "id":self.id,
+            "burnt_cals":self.burnt_cals,
+            "total_distance":self.total_distance,
+            "daily_steps":self.daily_steps,
+            "date":self.date,
         }
