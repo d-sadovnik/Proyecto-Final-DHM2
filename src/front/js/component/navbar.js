@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LOGO from "../../img/logo3.png";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
       <div class="container-fluid">
@@ -28,9 +29,24 @@ export const Navbar = () => {
               </Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-link" to="/login">
-                Login
-              </Link>
+              {localStorage.getItem("token") ? (
+                <li class="nav-item">
+                  <button
+                    class="nav-link btn btn-black"
+                    aria-current="page"
+                    onClick={() => {
+                      localStorage.removeItem("token");
+                      navigate("/login");
+                    }}
+                  >
+                    Log out
+                  </button>
+                </li>
+              ) : (
+                <Link class="nav-link" to="/login">
+                  Login
+                </Link>
+              )}
             </li>
             <li class="nav-item">
               <Link class="nav-link" to="/routines">

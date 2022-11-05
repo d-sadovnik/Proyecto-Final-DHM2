@@ -23,7 +23,8 @@ export const Login = () => {
       .login(body)
       .then((resp) => {
         console.log(resp);
-        // navigate("/");
+        localStorage.setItem("token", resp.accessToken);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

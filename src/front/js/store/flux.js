@@ -51,7 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(body);
         try {
           const resp = await fetch(
-            "https://3001-dsadovnik-proyectofinal-4pnf5gv4g8l.ws-us74.gitpod.io/api/signup",
+            "https://3001-dsadovnik-proyectofinal-xspeyvaxuav.ws-us74.gitpod.io/api/signup",
             {
               method: "POST",
               body: JSON.stringify(body),
@@ -70,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       login: async (body) => {
         try {
           const resp = await fetch(
-            "https://3001-dsadovnik-proyectofinal-4pnf5gv4g8l.ws-us74.gitpod.io/api/login",
+            "https://3001-dsadovnik-proyectofinal-xspeyvaxuav.ws-us74.gitpod.io/api/login",
             {
               method: "POST",
               body: JSON.stringify(body),
