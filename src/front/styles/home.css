@@ -85,9 +85,6 @@
   display: inline-block;
 }
 
-.thumb li img{
-}
-
 .thumb li:hover {
   transform: translateY(-15px)  
 }
