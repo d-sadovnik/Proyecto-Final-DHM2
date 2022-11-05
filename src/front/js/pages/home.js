@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import background from "../../img/dark-background-for-home.jpg";
 import boostresults from "../../img/Home-boost-2.gif";
+import thumb1 from "../../img/dumbell.png";
+import thumb2 from "../../img/chart.png";
+import thumb3 from "../../img/results.png";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
@@ -25,6 +28,11 @@ export const Home = () => {
       <div className="imgBox">
         <img src={boostresults} alt="..." className="homepic"/>
       </div>
+      <ul className="thumb">
+        <li><img src={thumb1}/></li>
+        <li><img src={thumb2}/></li>
+        <li><img src={thumb3}/></li>
+      </ul>
       {/* <div className="alert alert-info">
         {store.message ||
           "Loading message from the backend (make sure your python backend is running)..."}
