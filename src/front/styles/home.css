@@ -71,9 +71,8 @@
 
 .thumb {
   position: absolute;
-  height:50px;
-  left: 50%;
-  bottom: 235px;
+  left: 57%;
+  bottom: -15px;
   transform: translateX(-50%);
   display: flex;
 }
@@ -82,12 +81,11 @@
   list-style: none;
   cursor: pointer;
   transition: 0.5s;
-  margin: 0 -300px;
+  margin: 0 -100px;
   display: inline-block;
 }
 
 .thumb li img{
-  max-width: -100px;
 }
 
 .thumb li:hover {

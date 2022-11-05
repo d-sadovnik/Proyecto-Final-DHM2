@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import background from "../../img/dark-background-for-home.jpg";
 import boostresults from "../../img/Home-boost-2.gif";
-import thumb1 from "../../img/dumbell.png";
-import thumb2 from "../../img/chart.png";
-import thumb3 from "../../img/results.png";
+import thumb1 from "../../img/icon-results.png";
+import thumb2 from "../../img/icon-chart.png";
+import thumb3 from "../../img/icon-dumbell.png";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
