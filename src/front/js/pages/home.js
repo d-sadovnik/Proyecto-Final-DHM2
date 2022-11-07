@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import background from "../../img/dark-background-for-home.jpg";
 import boostresults from "../../img/Home-boost-2.gif";
 import limitbreaker from "../../img/Home-limitbreaker-2.gif";
-import trackresults from "../../img/track-results2.gif"
+import trackresults from "../../img/track-results3.gif"
 import thumb1 from "../../img/icon-results.png";
 import thumb2 from "../../img/icon-chart.png";
 import thumb3 from "../../img/icon-dumbell.png";
