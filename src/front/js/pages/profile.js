@@ -1,6 +1,7 @@
 import { Context } from "../store/appContext";
 import "../../styles/profile.css";
 import background from "./../../img/picfondo2.jpg";
+import avatarpic from "./../../img/picfondo2.jpg";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
