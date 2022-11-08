@@ -51,9 +51,19 @@
         background-color: darkgoldenrod;
         transition: all 0.3s ease;
         cursor: pointer;
+        padding:5px;
+        
       }
     
     .field button:hover {
         background-color: rgb(141, 103, 7);
         color:#FFF;
       }
+
+    .formbuttons{
+        margin-left: 10px;
+        margin-right: 10px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
