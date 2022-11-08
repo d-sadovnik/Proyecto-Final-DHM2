@@ -1,7 +1,7 @@
 import { Context } from "../store/appContext";
 import "../../styles/profile.css";
 import background from "./../../img/picfondo2.jpg";
-import avatarpic from "./../../img/picfondo2.jpg";
+import avatarpic from "./../../img/avatar-profile-2.png";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ export const Profile = () => {
                 <div className="card-header">Profile Picture</div>
                 <div className="card-body text-center">
                     {/* <!-- Profile picture image--> */}
-                    <img className="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""/>
+                    <img className="img-account-profile rounded-circle mb-2" src={avatarpic} alt=""/>
                     {/* <!-- Profile picture help block--> */}
                     <div className="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     {/* <!-- Profile picture upload button--> */}
