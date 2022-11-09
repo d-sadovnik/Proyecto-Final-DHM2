@@ -135,7 +135,7 @@ export const Tracker = () => {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="field button">
-                      <button>Save changes</button>
+                      <button>Input data</button>
                     </div>
                   </div>
                   <div className="col-md-6">
