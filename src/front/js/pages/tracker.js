@@ -98,7 +98,7 @@ export const Tracker = () => {
                     <input
                       className="form-control"
                       id="inputHeartrate"
-                      type="text"
+                      type="number"
                       placeholder="Bpm"
                     />
                   </div>
