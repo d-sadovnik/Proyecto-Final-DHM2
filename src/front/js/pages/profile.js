@@ -21,7 +21,7 @@ export const Profile = () => {
       <div className="row">
         <div className="col-xl-4">
           {/* <!-- Profile picture card--> */}
-          <div className="card mb-4 mb-xl-0">
+          <div className="card mb-4 mb-xl-0 w-25 mx-auto">
             <div className="card-header">Profile Picture</div>
             <div className="card-body text-center">
               {/* <!-- Profile picture image--> */}
@@ -41,7 +41,7 @@ export const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="col-xl-8">
+        <div className="col-xl-8 w-75 mx-auto">
           {/* <!-- Account details card--> */}
           <div className="card mb-4">
             <div className="card-header">Account Details</div>
@@ -57,7 +57,7 @@ export const Profile = () => {
                     className="form-control"
                     id="inputUsername"
                     type="text"
-                    placeholder="Enter your username"
+                    placeholder="Type your username"
                   />
                 </div>
                 {/* <!-- Form Row--> */}
@@ -71,7 +71,7 @@ export const Profile = () => {
                       className="form-control"
                       id="inputFirstName"
                       type="text"
-                      placeholder="Enter your first name"
+                      placeholder="Type your first name"
                     />
                   </div>
                   {/* <!-- Form Group (last name)--> */}
@@ -83,7 +83,7 @@ export const Profile = () => {
                       className="form-control"
                       id="inputLastName"
                       type="text"
-                      placeholder="Enter your last name"
+                      placeholder="Type your last name"
                     />
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export const Profile = () => {
                       className="form-control"
                       id="inputOrgName"
                       type="text"
-                      placeholder="Enter height in CM"
+                      placeholder="Height in CM"
                     />
                   </div>
                   {/* <!-- Form Group (weight)--> */}
@@ -110,7 +110,7 @@ export const Profile = () => {
                       className="form-control"
                       id="inputLocation"
                       type="text"
-                      placeholder="Enter weight in KG"
+                      placeholder="Weight in KG"
                     />
                   </div>
                   {/* <!-- Form Group (bodyfat)--> */}
@@ -122,7 +122,7 @@ export const Profile = () => {
                       className="form-control"
                       id="inputLocation"
                       type="text"
-                      placeholder="Enter body fat in %"
+                      placeholder="Body fat in %"
                     />
                   </div>
                   {/* <!-- Form Group (muscle mass)--> */}
@@ -134,7 +134,7 @@ export const Profile = () => {
                       className="form-control"
                       id="inputLocation"
                       type="text"
-                      placeholder="Enter muscle mass in KG"
+                      placeholder="Muscle mass in KG"
                     />
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export const Profile = () => {
                     className="form-control"
                     id="inputEmailAddress"
                     type="email"
-                    placeholder="Enter your email address"
+                    placeholder="Type your email address"
                   />
                 </div>
                 {/* <!-- Form Row--> */}
@@ -161,7 +161,7 @@ export const Profile = () => {
                       className="form-control"
                       id="inputPhone"
                       type="number"
-                      placeholder="Enter your phone number"
+                      placeholder="Type your phone number"
                     />
                   </div>
                   {/* <!-- Form Group (birthday)--> */}
@@ -174,7 +174,7 @@ export const Profile = () => {
                       id="inputBirthday"
                       type="text"
                       name="birthday"
-                      placeholder="Enter your birthday"
+                      placeholder="Type your birthday"
                     />
                   </div>
                 </div>
