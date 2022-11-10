@@ -1,7 +1,72 @@
-/*
-    home.css: This website contains selectors only used in home.css
+/* Google fonts - poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.containerhome {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(69, 65, 65);
+  background-size: 100%;
+}
+
+
+.content{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.content .textBox{
+  position: relative;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.content .textBox h1{
+color: whitesmoke;
+font-size: 4em;
+line-height: 1.4em;
+font-weight: 500;
+}
+
+.content .textBox p{ 
+color: whitesmoke;
+}
+
+.content .textBox a{ 
+  display: inline-block;
+  margin-top: 1px;
+  background: #dfb50a;
+  color: #FFF;
+  border-radius: 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  }
+
+  .content .textBox a:hover{ 
+  cursor: pointer;
+  background-color: rgb(141, 103, 7);
+  color:#FFF;
+  }
+
+  .content .imgBox{
+    width: 600px;
+    padding: 50px;
+    display:flexbox;
+  }
+
+  .content .imgBox .homepic{ 
+    width: 500px;
+
+  }
