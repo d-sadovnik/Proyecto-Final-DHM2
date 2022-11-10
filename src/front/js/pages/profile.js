@@ -19,7 +19,7 @@ export const Profile = () => {
     >
       <hr className="mt-0 mb-4" />
       <div className="row">
-        <div className="col-xl-4">
+        <div>
           {/* <!-- Profile picture card--> */}
           <div className="card mb-4 mb-xl-0 w-25 mx-auto">
             <div className="card-header">Profile Picture</div>
