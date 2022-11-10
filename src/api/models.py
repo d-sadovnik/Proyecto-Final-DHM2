@@ -59,7 +59,7 @@ class Exercises(db.Model):
     __tablename__ = "exercises_table"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
-    description = db.Column(db.String(120), unique=False, nullable=False)
+    description = db.Column(db.String(1000), unique=False, nullable=False)
     burnt_calories = db.Column(db.Float, unique=False, nullable=False)
     muscle_id = db.Column(db.Integer, db.ForeignKey("muscles_table.id"))
     muscle = db.relationship("Muscles", back_populates="excercise")
