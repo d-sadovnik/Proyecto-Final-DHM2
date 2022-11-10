@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import background from "../../img/dark-background-for-home.jpg";
-import ROUTINENATION from "../../img/ROUTINE NATION 2.png";
+import boostresults from "../../img/Home-boost-2.gif";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
@@ -14,7 +14,7 @@ export const Home = () => {
       <div className="textBox">
         <h1>ROUTINE NATION</h1>
         <p>
-          We are a solution to your daily workout routine focused on automation, efficiency and independence. Cut the middle-man, make the most of your training sessions and boost your results. 
+          We are a solution to your daily workout routine focused on automation, efficiency and independence. Access your exercises with ease without the need for a personal trainers or prepaid memberships. Speed is key if you want to make the most out of your training sessions, so stop improvising training plans on a daily basis and focus on getting the job done. Our massive muscle catalog is designed to suit the needs of beginners and experts alike, to guide you in your fitness journey for the long run. 
         </p>
         <a>
         <Link class="nav-link" to="/signup">
@@ -23,7 +23,7 @@ export const Home = () => {
         </a>
       </div>
       <div className="imgBox">
-        <img src={ROUTINENATION} alt="..." className="homepic" />
+        <img src={boostresults} alt="..." className="homepic"/>
       </div>
       {/* <div className="alert alert-info">
         {store.message ||
