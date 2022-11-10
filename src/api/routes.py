@@ -230,5 +230,5 @@ def cargar_ejercicios():
 
         db.session.commit()
     return jsonify({'msg': 'datos cargados'}), 200
-
+    a
 
