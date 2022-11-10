@@ -58,7 +58,7 @@ class Profile(db.Model):
 class Exercises(db.Model):
     __tablename__ = "exercises_table"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True, nullable=False)
+    name = db.Column(db.String(80), unique=False, nullable=False)
     description = db.Column(db.String(1000), unique=False, nullable=False)
     burnt_calories = db.Column(db.Float, unique=False, nullable=False)
     muscle_id = db.Column(db.Integer, db.ForeignKey("muscles_table.id"))
@@ -97,8 +97,8 @@ class Muscles(db.Model):
 class Free_routine(db.Model):
     __tablename__ = "freeroutine_table"
     id = db.Column(db.Integer, primary_key=True)
-    routine_name = db.Column(db.String(120), unique=True, nullable=False)
-    description= db.Column(db.String(500),unique=True)
+    routine_name = db.Column(db.String(120), unique=False, nullable=False)
+    description= db.Column(db.String(500),unique=False)
     burnt_calories = db.Column(db.String(120), unique=False, nullable=False)
     routine_id = db.Column(db.Integer, db.ForeignKey("muscles_table.id"))
     muscles_in_routine=db.relationship("Muscles", back_populates="free_routines")
@@ -159,8 +159,8 @@ class Muscle_group(db.Model):
 class Predetermined_routines(db.Model):
     __tablename__ = "predeterminedroutines_table"
     id = db.Column(db.Integer, primary_key=True)
-    routine_name = db.Column(db.String(120), unique=True, nullable=False)
-    description= db.Column(db.String(500),unique=True)
+    routine_name = db.Column(db.String(120), unique=False, nullable=False)
+    description= db.Column(db.String(500),unique=False)
     burnt_calories = db.Column(db.String(120), unique=False, nullable=False)
     routine_id = db.Column(db.Integer, db.ForeignKey("group_table.id"))
     muscles_in_da_group=db.relationship("Muscle_group", back_populates="routine_names")
