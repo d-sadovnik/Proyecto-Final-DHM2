@@ -1,10 +1,11 @@
+from sqlalchemy_serializer import SerializerMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, ForeignKey, Integer, Table, Float
 from sqlalchemy.orm import declarative_base, relationship
 
 db = SQLAlchemy()
 
-class User(db.Model):
+class User(db.Model,SerializerMixin):
     __tablename__ = "user_table"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -29,7 +30,7 @@ class User(db.Model):
         }
 
 
-class Profile(db.Model):
+class Profile(db.Model,SerializerMixin):
     __tablename__ = "profile_table"
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
@@ -55,8 +56,9 @@ class Profile(db.Model):
         }
 
 
-class Exercises(db.Model):
+class Exercises(db.Model,SerializerMixin):
     __tablename__ = "exercises_table"
+  
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
     description = db.Column(db.String(1000), unique=False, nullable=False)
@@ -74,9 +76,11 @@ class Exercises(db.Model):
             "description": self.description,
             "burnt_calories": self.burnt_calories,
         }
+    
 
 
-class Muscles(db.Model):
+
+class Muscles(db.Model,SerializerMixin):
     __tablename__ = "muscles_table"
     id = db.Column(db.Integer, primary_key=True)
     muscle_name = db.Column(db.String(120), unique=True, nullable=False)
@@ -95,7 +99,7 @@ class Muscles(db.Model):
          
         }
 
-class Free_routine(db.Model):
+class Free_routine(db.Model,SerializerMixin):
     __tablename__ = "freeroutine_table"
     id = db.Column(db.Integer, primary_key=True)
     routine_name = db.Column(db.String(120), unique=False, nullable=False)
@@ -116,7 +120,7 @@ class Free_routine(db.Model):
             "burnt_calories":self.burnt_calories,
         }
 
-class Tracker_free(db.Model):
+class Tracker_free(db.Model,SerializerMixin):
     __tablename__ = "trackerfree_table"
     id = db.Column(db.Integer, primary_key=True)
     burnt_cals = db.Column(db.Float, unique=False, nullable=False)
@@ -140,7 +144,7 @@ class Tracker_free(db.Model):
         }
 
 
-class Muscle_group(db.Model):
+class Muscle_group(db.Model,SerializerMixin):
     __tablename__ = "group_table"
     id = db.Column(db.Integer, primary_key=True)
     muscle_group = db.Column(db.String(120), unique=True, nullable=False)
@@ -153,11 +157,11 @@ class Muscle_group(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "muscle_group": self.muscle_group
+            "muscle_group": self.muscle_group,
         }
 
 
-class Predetermined_routines(db.Model):
+class Predetermined_routines(db.Model,SerializerMixin):
     __tablename__ = "predeterminedroutines_table"
     id = db.Column(db.Integer, primary_key=True)
     routine_name = db.Column(db.String(120), unique=False, nullable=False)
@@ -178,7 +182,7 @@ class Predetermined_routines(db.Model):
             "burnt_calories":self.burnt_calories,
         }
     
-class Tracker_pred(db.Model):
+class Tracker_pred(db.Model,SerializerMixin):
     __tablename__ = "trackerpred_table"
     id = db.Column(db.Integer, primary_key=True)
     burnt_cals = db.Column(db.Float, unique=False, nullable=False)

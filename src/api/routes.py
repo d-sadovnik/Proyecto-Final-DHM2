@@ -299,9 +299,28 @@ def get_musclegroup():
 def get_exermuscleqty(id,qty):
     exercise = Exercises.query.filter_by(muscle_id=id)
     result = list(map(lambda exercises: exercises.serialize(), exercise))
-    
+    muscle_name = Muscles.query.filter_by(id=id)
+    result2 = list(map(lambda muscles: muscles.serialize(), muscle_name))
+
     response_body = {
+        "muscle": result2,
         "exercise": random.sample(result, qty)
+    }
+
+    return jsonify(response_body), 200
+
+@api.route('/musclegroup/<int:id>', methods=['GET'])
+def get_exermusclegroup(id):
+    muscles = Muscles.query.filter_by(groupid=id)
+    result = list(map(lambda muscles: muscles.serialize(), muscles))
+    #exercises=Exercises.query.filter_by(muscle_id=result.id)
+    for element in result: 
+        el = Exercises.query.filter_by(muscle_id=element["id"])
+        rel=list(map(lambda exercises: exercises.serialize(), el)) 
+
+    response_body = {
+        "predetermined_exercises": random.sample(rel, 3),
+        "muscle": result
     }
 
     return jsonify(response_body), 200
