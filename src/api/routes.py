@@ -1,6 +1,7 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+import random
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Profile, Muscles, Exercises, Muscle_group, Predetermined_routines, Tracker_pred, Free_routine, Tracker_free
 from api.utils import generate_sitemap, APIException
@@ -271,3 +272,36 @@ def cargar_ejercicios():
 
         db.session.commit()
     return jsonify({'msg': 'datos cargados'}), 200
+
+@api.route('/listmuscle', methods=['GET'])
+def get_muscle():
+    muscle_name = Muscles.query.filter().all()
+    result = list(map(lambda muscles: muscles.serialize(), muscle_name))
+
+    response_body = {
+        "muscle": result
+    }
+
+    return jsonify(response_body), 200
+
+@api.route('/listmusclegroup', methods=['GET'])
+def get_musclegroup():
+    muscle_group = Muscle_group.query.filter().all()
+    result = list(map(lambda muscle_group: muscle_group.serialize(), muscle_group))
+
+    response_body = {
+        "Muscle_group": result
+    }
+
+    return jsonify(response_body), 200
+
+@api.route('/listmuscle/<int:id>/<int:qty>', methods=['GET'])
+def get_exermuscleqty(id,qty):
+    exercise = Exercises.query.filter_by(muscle_id=id)
+    result = list(map(lambda exercises: exercises.serialize(), exercise))
+    
+    response_body = {
+        "exercise": random.sample(result, qty)
+    }
+
+    return jsonify(response_body), 200

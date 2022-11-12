@@ -91,7 +91,8 @@ class Muscles(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "muscles": self.muscles,
+            "muscles": self.muscle_name,
+         
         }
 
 class Free_routine(db.Model):
