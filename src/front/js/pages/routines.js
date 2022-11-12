@@ -13,6 +13,7 @@ export const Routines = () => {
       <div className="content">
         
         <div className="imgDefault">
+        <Link to="/default">
           <img src={defaultroutine} 
           alt="..." 
           className="defaultpic" 
@@ -23,8 +24,10 @@ export const Routines = () => {
                 setType(2);
               }}
           />
+            </Link>
         </div>
         <div className="imgFree">
+        <Link to="/free">
           <img src={freeroutine} 
           alt="..." 
           className="freepic"
@@ -35,6 +38,7 @@ export const Routines = () => {
             setType(2);
           }}
           />
+          </Link>
         </div>
       </div>
     </div>
