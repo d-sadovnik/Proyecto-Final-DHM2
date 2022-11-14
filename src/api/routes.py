@@ -1,13 +1,9 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-import random
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Profile, Muscles, Exercises, Muscle_group, Predetermined_routines, Tracker_pred, Free_routine, Tracker_free
+from api.models import db, User, Profile, Muscles, Exercises, Muscle_group, Predetermined_routines, Tracker_pred,Free_routine, Tracker_free
 from api.utils import generate_sitemap, APIException
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import get_jwt_identity
-from flask_jwt_extended import jwt_required
 
 api = Blueprint('api', __name__)
 
@@ -21,74 +17,33 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@api.route('/signup', methods=['POST'])  
-def signup():  
-    email = request.json.get('email', None)
-    password = request.json.get('password', None)
-
-    if not email or not password:
-        return jsonify({'msg': 'Necesitas un correo y una contraseña  para ingresar'}), 404
-    usuario_prueba = User.query.filter_by(email=email).first()
-    if not usuario_prueba:    
-
-        new_user = User(email=email, password=password, is_active=True)        
-        db.session.add(new_user)
-        db.session.commit()
-        respuesta = {
-            'msg': 'usuario registrado'
-        }
-        return jsonify(respuesta), 200
-
-    else: 
-        return jsonify({'msg': 'el usuario ya se encuentra registrado'}), 404    
-
-@api.route("/login", methods=["POST"])
-def handle_login():
-    email = request.json.get("email", None)
-    password = request.json.get("password", None)
-    usuario_query = User.query.filter_by(email=email, password=password).first()
-    if not usuario_query: 
-        return jsonify({"msg": "Bad username or password"}), 401
-   
-    access_token = create_access_token(identity=email)
-    response_body = {
-        "msg": "bienvenido",
-        "accessToken": access_token,
-        "id": usuario_query.id
-    }
-    return jsonify(response_body), 200    
-
-
 @api.route('/cargardatosgrupomuscular', methods=['GET'])
 def cargar_datos():
-    grupos_musculares = Muscle_group.query.all()
+    grupos_musculares=Muscle_group.query.all()
     if not grupos_musculares:
-        new_grupo_muscular_1 = Muscle_group(
-            id="1", muscle_group='Tren Superior')
-        new_grupo_muscular_2 = Muscle_group(id="2", muscle_group='Core')
-        new_grupo_muscular_3 = Muscle_group(
-            id="3", muscle_group='Tren Inferior')
+        new_grupo_muscular_1=Muscle_group(muscle_group='Tren Superior')
+        new_grupo_muscular_2=Muscle_group(muscle_group='Core')
+        new_grupo_muscular_3=Muscle_group(muscle_group='Tren Inferior')
 
         db.session.add(new_grupo_muscular_1)
         db.session.add(new_grupo_muscular_2)
-        db.session.add(new_grupo_muscular_3)
+        db.session.add(new_grupo_muscular_3)   
 
         db.session.commit()
-    return jsonify({'msg': 'datos cargados'}), 200
-
+    return jsonify({'msg': 'datos cargados'}), 200 
 
 @api.route('/cargardatosmusculo', methods=['GET'])
 def cargar_musculos():
-    musculos = Muscles.query.all()
+    musculos=Muscles.query.all()
     if not musculos:
-        new_musculos_1 = Muscles(id="1", muscle_name='Triceps', groupid=1)
-        new_musculos_2 = Muscles(id="2", muscle_name='Biceps', groupid=1)
-        new_musculos_3 = Muscles(id="3", muscle_name='Back', groupid=1)
-        new_musculos_4 = Muscles(id="4", muscle_name='Abs', groupid=2)
-        new_musculos_5 = Muscles(id="5", muscle_name='Shoulder', groupid=1)
-        new_musculos_6 = Muscles(id="6", muscle_name='Leg', groupid=3)
-        new_musculos_7 = Muscles(id="7", muscle_name='Chest', groupid=1)
-        new_musculos_8 = Muscles(id="8", muscle_name='Cardio', groupid=2)
+        new_musculos_1=Muscles(muscle_name='Triceps', groupid=1)
+        new_musculos_2=Muscles(muscle_name='Biceps', groupid=1)
+        new_musculos_3=Muscles(muscle_name='Back', groupid=1)
+        new_musculos_4=Muscles(muscle_name='Abs', groupid=2)
+        new_musculos_5=Muscles(muscle_name='Shoulder', groupid=1)
+        new_musculos_6=Muscles(muscle_name='Leg', groupid=3)
+        new_musculos_7=Muscles(muscle_name='Chest', groupid=1)
+        new_musculos_8=Muscles(muscle_name='Cardio', groupid=2)
 
         db.session.add(new_musculos_1)
         db.session.add(new_musculos_2)
@@ -100,13 +55,12 @@ def cargar_musculos():
         db.session.add(new_musculos_8)
 
         db.session.commit()
-
-    return jsonify({'msg': 'datos cargados'}), 200
-
+        
+    return jsonify({'msg': 'datos cargados'}), 200   
 
 @api.route('/cargardatosejercicios', methods=['GET'])
 def cargar_ejercicios():
-    exercises = Exercises.query.all()
+    exercises=Exercises.query.all()
     if not exercises:
         new_exercises_1=Exercises(name='DUMBBELL KICKBACK', burnt_calories=0, muscle_id=1, description="Kickback exercise works best with light to moderate weights and medium to high reps. Use the kickbacks as a finishing workout and really feel the pump.")
         new_exercises_2=Exercises(name='BENT OVER KICKBACK', burnt_calories=0, muscle_id=1, description="The bent over kickback is an isolation exercise which builds strength and muscle in all three heads which make up the tricep muscle.Kickback exercise works best with light to moderate weights and medium to high reps. Use the kickbacks as a finishing workout and really feel the pump.")
@@ -168,7 +122,7 @@ def cargar_ejercicios():
         new_exercises_58=Exercises(name='BODYWEIGHT MILITARY PRESS', burnt_calories=0, muscle_id=5, description="Bodyweight military press work the muscles surrounding the scapula and shoulder for both dynamic and static stability. It is a frequently used exercise for upright posture and postural disorders.")
         new_exercises_59=Exercises(name='BAND PULL-APART', burnt_calories=0, muscle_id=5, description="The band pull-apart is a great strengthening exercise that effectively works many muscles, including the shoulder, rotator cuff, and trapezius muscles. By affecting the infraspinatus and subscapula muscles that cover the scapula, it can help protect you from ailments caused by muscle weakness such as posture disorder and scapula protrusion. in addition strengthening these muscles using the band pull-apart exercise will help improve poor posture, promote an upright stance, and improve balance.")
         new_exercises_60=Exercises(name='ONE ARM KETTLEBELL SNATCH', burnt_calories=0, muscle_id=7, description="The one-arm kettlebell snatch is primarily considered a strength and cardio exercise. It develops the entire posterior chain of the body while building strength, coordination, and cardiovascular fitness simultaneously.")
-        new_exercises_61=Exercises(name='ARM_SCISSORS', burnt_calories=0, muscle_id=7, description="Stand with your feet shoulder width apart.Lift your arms at shoulder height and cross them in front of your chest.Change the other arm on the top each time you cross.")
+        new_exercises_61=Exercises(name='ARM SCISSORS', burnt_calories=0, muscle_id=7, description="Stand with your feet shoulder width apart.Lift your arms at shoulder height and cross them in front of your chest.Change the other arm on the top each time you cross.")
         new_exercises_62=Exercises(name='LOW CABLE CROSSOVER', burnt_calories=0, muscle_id=7, description="This movement, which is performed on a machine with cables, is one of the chest movements that you can exercise your chest muscles from a to z in the most efficient way. You can target your lower, upper and middle chest muscles separately by changing the height of the cables on the station.")
         new_exercises_63=Exercises(name='HIGH CABLE CROSSOVER', burnt_calories=0, muscle_id=7, description="The high to low cable crossover is an effective chest isolation exercise that focuses on the mid chest and lower chest. The higher the cables are the more you’ll emphasize your lower pecs. The lower the cables, and the more you’ll target the upper pecs.")
         new_exercises_64=Exercises(name='CABLE UPPER CHEST CROSSOVERS', burnt_calories=0, muscle_id=7, description="This cable workout is an exercise designed to builder your upper chest muscles, increase range of motion, and strengthen the chest muscles.In cases where the upper chest muscles are not developed, chest exercises that work at different angles can be beneficial, but one thing you should pay attention to in this exercise is that it includes the front shoulder muscles in the movement while doing the exercise. Cable exercises are effective as they provide continuous resistance, but it is recommended to work with proper form and low weights so that most of the load is not placed on the shoulders.")
@@ -185,13 +139,16 @@ def cargar_ejercicios():
         new_exercises_75=Exercises(name='JUMP ROPE', burnt_calories=0, muscle_id=5, description="")
         new_exercises_76=Exercises(name='ELBOW TO KNEE TWIST', burnt_calories=0, muscle_id=8, description="")
         new_exercises_77=Exercises(name='PUSH-UP TOE TOUCH', burnt_calories=0, muscle_id=8, description="")
-        new_exercises_78=Exercises(name='MOUNTAIN_CLIMBER', burnt_calories=0, muscle_id=8, description="Assume a normal press-up position with your weight on your hands and toes, your back and legs straight, and your hands shoulder-width apart.")
-        new_exercises_79=Exercises(name='BICYCLE_CRUNCH', burnt_calories=0, muscle_id=8, description="In a study conducted by the American Council of Exercise, the Bicycle crunch exercise is described as one of the most effective exercises that best work the rectus abdominus, strengthen the abdominal muscles and support six-pack formation.")
+        new_exercises_78=Exercises(name='MOUNTAIN CLIMBER', burnt_calories=0, muscle_id=8, description="Assume a normal press-up position with your weight on your hands and toes, your back and legs straight, and your hands shoulder-width apart.")
+        new_exercises_79=Exercises(name='BICYCLE CRUNCH', burnt_calories=0, muscle_id=8, description="In a study conducted by the American Council of Exercise, the Bicycle crunch exercise is described as one of the most effective exercises that best work the rectus abdominus, strengthen the abdominal muscles and support six-pack formation.")
         new_exercises_80=Exercises(name='T-CROSS SIT-UP', burnt_calories=0, muscle_id=8, description="It works all the abdominal muscles: The T-Cross sit-up exercise targets the rectus abdominus and oblique muscles.")
+
+     
+
 
         db.session.add(new_exercises_1)
         db.session.add(new_exercises_2)
-        db.session.add(new_exercises_3)
+        db.session.add(new_exercises_3)   
         db.session.add(new_exercises_4)
         db.session.add(new_exercises_5)
         db.session.add(new_exercises_6)
@@ -270,57 +227,8 @@ def cargar_ejercicios():
         db.session.add(new_exercises_79)
         db.session.add(new_exercises_80)
 
+
         db.session.commit()
     return jsonify({'msg': 'datos cargados'}), 200
 
-@api.route('/listmuscle', methods=['GET'])
-def get_muscle():
-    muscle_name = Muscles.query.filter().all()
-    result = list(map(lambda muscles: muscles.serialize(), muscle_name))
 
-    response_body = {
-        "muscle": result
-    }
-
-    return jsonify(response_body), 200
-
-@api.route('/listmusclegroup', methods=['GET'])
-def get_musclegroup():
-    muscle_group = Muscle_group.query.filter().all()
-    result = list(map(lambda muscle_group: muscle_group.serialize(), muscle_group))
-
-    response_body = {
-        "Muscle_group": result
-    }
-
-    return jsonify(response_body), 200
-
-@api.route('/listmuscle/<int:id>/<int:qty>', methods=['GET'])
-def get_exermuscleqty(id,qty):
-    exercise = Exercises.query.filter_by(muscle_id=id)
-    result = list(map(lambda exercises: exercises.serialize(), exercise))
-    muscle_name = Muscles.query.filter_by(id=id)
-    result2 = list(map(lambda muscles: muscles.serialize(), muscle_name))
-
-    response_body = {
-        "muscle": result2,
-        "exercise": random.sample(result, qty)
-    }
-
-    return jsonify(response_body), 200
-
-@api.route('/musclegroup/<int:id>', methods=['GET'])
-def get_exermusclegroup(id):
-    muscles = Muscles.query.filter_by(groupid=id)
-    result = list(map(lambda muscles: muscles.serialize(), muscles))
-    #exercises=Exercises.query.filter_by(muscle_id=result.id)
-    for element in result: 
-        el = Exercises.query.filter_by(muscle_id=element["id"])
-        rel=list(map(lambda exercises: exercises.serialize(), el)) 
-
-    response_body = {
-        "predetermined_exercises": random.sample(rel, 3),
-        "muscle": result
-    }
-
-    return jsonify(response_body), 200
