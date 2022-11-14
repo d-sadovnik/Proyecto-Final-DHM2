@@ -1,7 +1,6 @@
 /* Google fonts - poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-
 * {
   margin: 0;
   padding: 0;
@@ -17,56 +16,76 @@
   background-size: 100%;
 }
 
-
-.content{
+.content {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
-}
-
-.content .textBox{
-  position: relative;
-  max-width: 600px;
+  justify-content: space-between;
   padding: 20px;
 }
 
-.content .textBox h1{
-color: whitesmoke;
-font-size: 4em;
-line-height: 1.4em;
-font-weight: 500;
+.content .textBox {
+  margin-left: 70px;
 }
 
-.content .textBox p{ 
-color: whitesmoke;
+.content .textBox h1 {
+  color: whitesmoke;
+  font-size: 4em;
+  line-height: 1.4em;
+  font-weight: 500;
 }
 
-.content .textBox a{ 
+.content .textBox p {
+  color: whitesmoke;
+}
+
+.content .textBox a {
   display: inline-block;
   margin-top: 1px;
   background: #dfb50a;
-  color: #FFF;
+  color: #fff;
   border-radius: 40px;
   font-weight: 500;
   letter-spacing: 1px;
   transition: all 0.3s ease;
   cursor: pointer;
-  }
+}
 
-  .content .textBox a:hover{ 
+.content .textBox a:hover {
   cursor: pointer;
   background-color: rgb(141, 103, 7);
-  color:#FFF;
-  }
+  color: #fff;
+}
 
-  .content .imgBox{
-    width: 600px;
-    padding: 50px;
-    display:flexbox;
-  }
+.content .imgBox {
+  width: 600px;
+  padding: 50px;
+  display: flexbox;
+  margin-right: 100px;
+}
 
-  .content .imgBox .homepic{ 
-    width: 500px;
+.content .imgBox .homepic {
+  width: 500px;
+}
 
-  }
+.thumb {
+  position: absolute;
+  left: 57%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.thumb li {
+  list-style: none;
+  cursor: pointer;
+  transition: 0.5s;
+  margin: 0 -100px;
+  display: inline-block;
+}
+
+.thumb li:hover {
+  transform: translateY(-15px)  
+}
+
