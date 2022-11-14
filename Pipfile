@@ -18,7 +18,6 @@ gunicorn = "*"
 cloudinary = "*"
 flask-admin = "*"
 flask-jwt-extended = "*"
-sqlalchemy-serializer = "*"
 
 [requires]
 python_version = "3.8"
