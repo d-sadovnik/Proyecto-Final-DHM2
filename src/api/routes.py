@@ -147,12 +147,12 @@ def cargar_ejercicios():
         new_exercises_37=Exercises(name='ACROSS CHEST SHOULDER STRETCH', burnt_calories=0, muscle_id=3, description="Shoulder stretches can help relieve muscle tension, pain, and tightness in the neck and shoulders. Including shoulder-specific exercises and stretches in your overall workout program may help increase your shoulder mobility and flexibility. These movements may also build strength in your shoulders, improve your shoulder function, and prevent injury.In addition, this stretching movement benefits the triceps, and back muscles.")
         new_exercises_38=Exercises(name='INCLINE DUMBBELL ROW', burnt_calories=0, muscle_id=3, description="Many of the movements that work the same muscle group may look alike, but they focus on different parts of the muscles because they are at different angles. If you want to build better muscle specifically, keep in mind that it is more beneficial to include exercises that focus on different aspects to your training program.")
         new_exercises_39=Exercises(name='BACK PEC STRETCH', burnt_calories=0, muscle_id=3, description="Stretches can help relieve muscle tension, pain, and tightness in the neck and shoulders. Including shoulder-specific exercises and stretches in your overall workout program may help increase your shoulder mobility and flexibility. These movements may also build strength in your shoulders, improve your shoulder function, and prevent injury.In addition, this stretching movement benefits the triceps, and back muscles.")
-        new_exercises_40=Exercises(name='', burnt_calories=0, muscle_id=3, description="se repite 40 con 38")
+        new_exercises_40=Exercises(name='INCLINE DUMBBELL ROW', burnt_calories=0, muscle_id=3, description="Many of the movements that work the same muscle group may look alike, but they focus on different parts of the muscles because they are at different angles. If you want to build better muscle specifically, keep in mind that it is more beneficial to include exercises that focus on different aspects to your training program.")
         new_exercises_41=Exercises(name='MOUNTAIN CLIMBER', burnt_calories=0, muscle_id=4, description="Assume a normal press-up position with your weight on your hands and toes, your back and legs straight, and your hands shoulder-width apart.")
-        new_exercises_42=Exercises(name='CROSS BODY MOUNTAIN CLIMBER', burnt_calories=0, muscle_id=4, description="se repite")
+        new_exercises_42=Exercises(name='CROSS BODY MOUNTAIN CLIMBER', burnt_calories=0, muscle_id=4, description="Assume a normal press-up position with your weight on your hands and toes, your back and legs straight, and your hands shoulder-width apart.")
         new_exercises_43=Exercises(name='SEATED BENCH LEG PULL-IN', burnt_calories=0, muscle_id=4, description="This exercise is one of the most effective movements that work your abdominal muscles.")
         new_exercises_44=Exercises(name='CRUNCHES', burnt_calories=0, muscle_id=4, description="Crunch movement is one of the most basic exercises designed to strengthen the core muscles of the body. Exercise helps to strengthen core muscles, improve posture, and increase muscle mobility and flexibility.Improves six pack muscles: When crunch exercise is done, the rectus abdominus and oblique muscles are tightened, so the upper abdominal muscles and six pack muscles develop.")
-        new_exercises_45=Exercises(name='CROSS CRUNCH', burnt_calories=0, muscle_id=4, description="se repite 44 y 45")
+        new_exercises_45=Exercises(name='CROSS CRUNCH', burnt_calories=0, muscle_id=4, description="Crunch movement is one of the most basic exercises designed to strengthen the core muscles of the body. Exercise helps to strengthen core muscles, improve posture, and increase muscle mobility and flexibility.Improves six pack muscles: When crunch exercise is done, the rectus abdominus and oblique muscles are tightened, so the upper abdominal muscles and six pack muscles develop.")
         new_exercises_46=Exercises(name='LEG RAISE', burnt_calories=0, muscle_id=4, description="Leg raise is one of the most effective exercises for the lower abdominal muscles.")
         new_exercises_47=Exercises(name='ALTERNATE LEG RAISES', burnt_calories=0, muscle_id=4, description="Leg raise is one of the most effective exercises for the lower abdominal muscles.")
         new_exercises_48=Exercises(name='BICYCLE CRUNCH', burnt_calories=0, muscle_id=4, description="In a study conducted by the American Council of Exercise, the Bicycle crunch exercise is described as one of the most effective exercises that best work the rectus abdominus, strengthen the abdominal muscles and support six-pack formation.Bicycle Crunch also targets your hip flexors. While your rectus abdominus muscle stabilizes your core during exercise, your hip flexors take on the task of raising your knees. By combining upper and lower body at the same time, the muscles work in harmony. This situation is very beneficial in terms of your mobility and flexibility.")
@@ -168,7 +168,7 @@ def cargar_ejercicios():
         new_exercises_58=Exercises(name='BODYWEIGHT MILITARY PRESS', burnt_calories=0, muscle_id=5, description="Bodyweight military press work the muscles surrounding the scapula and shoulder for both dynamic and static stability. It is a frequently used exercise for upright posture and postural disorders.")
         new_exercises_59=Exercises(name='BAND PULL-APART', burnt_calories=0, muscle_id=5, description="The band pull-apart is a great strengthening exercise that effectively works many muscles, including the shoulder, rotator cuff, and trapezius muscles. By affecting the infraspinatus and subscapula muscles that cover the scapula, it can help protect you from ailments caused by muscle weakness such as posture disorder and scapula protrusion. in addition strengthening these muscles using the band pull-apart exercise will help improve poor posture, promote an upright stance, and improve balance.")
         new_exercises_60=Exercises(name='ONE ARM KETTLEBELL SNATCH', burnt_calories=0, muscle_id=7, description="The one-arm kettlebell snatch is primarily considered a strength and cardio exercise. It develops the entire posterior chain of the body while building strength, coordination, and cardiovascular fitness simultaneously.")
-        new_exercises_61=Exercises(name='ARM_SCISSORS', burnt_calories=0, muscle_id=7, description="Stand with your feet shoulder width apart.Lift your arms at shoulder height and cross them in front of your chest.Change the other arm on the top each time you cross.")
+        new_exercises_61=Exercises(name='ARM SCISSORS', burnt_calories=0, muscle_id=7, description="Stand with your feet shoulder width apart.Lift your arms at shoulder height and cross them in front of your chest.Change the other arm on the top each time you cross.")
         new_exercises_62=Exercises(name='LOW CABLE CROSSOVER', burnt_calories=0, muscle_id=7, description="This movement, which is performed on a machine with cables, is one of the chest movements that you can exercise your chest muscles from a to z in the most efficient way. You can target your lower, upper and middle chest muscles separately by changing the height of the cables on the station.")
         new_exercises_63=Exercises(name='HIGH CABLE CROSSOVER', burnt_calories=0, muscle_id=7, description="The high to low cable crossover is an effective chest isolation exercise that focuses on the mid chest and lower chest. The higher the cables are the more you’ll emphasize your lower pecs. The lower the cables, and the more you’ll target the upper pecs.")
         new_exercises_64=Exercises(name='CABLE UPPER CHEST CROSSOVERS', burnt_calories=0, muscle_id=7, description="This cable workout is an exercise designed to builder your upper chest muscles, increase range of motion, and strengthen the chest muscles.In cases where the upper chest muscles are not developed, chest exercises that work at different angles can be beneficial, but one thing you should pay attention to in this exercise is that it includes the front shoulder muscles in the movement while doing the exercise. Cable exercises are effective as they provide continuous resistance, but it is recommended to work with proper form and low weights so that most of the load is not placed on the shoulders.")
@@ -185,8 +185,8 @@ def cargar_ejercicios():
         new_exercises_75=Exercises(name='JUMP ROPE', burnt_calories=0, muscle_id=5, description="")
         new_exercises_76=Exercises(name='ELBOW TO KNEE TWIST', burnt_calories=0, muscle_id=8, description="")
         new_exercises_77=Exercises(name='PUSH-UP TOE TOUCH', burnt_calories=0, muscle_id=8, description="")
-        new_exercises_78=Exercises(name='MOUNTAIN_CLIMBER', burnt_calories=0, muscle_id=8, description="Assume a normal press-up position with your weight on your hands and toes, your back and legs straight, and your hands shoulder-width apart.")
-        new_exercises_79=Exercises(name='BICYCLE_CRUNCH', burnt_calories=0, muscle_id=8, description="In a study conducted by the American Council of Exercise, the Bicycle crunch exercise is described as one of the most effective exercises that best work the rectus abdominus, strengthen the abdominal muscles and support six-pack formation.")
+        new_exercises_78=Exercises(name='MOUNTAIN CLIMBER', burnt_calories=0, muscle_id=8, description="Assume a normal press-up position with your weight on your hands and toes, your back and legs straight, and your hands shoulder-width apart.")
+        new_exercises_79=Exercises(name='BICYCLE CRUNCH', burnt_calories=0, muscle_id=8, description="In a study conducted by the American Council of Exercise, the Bicycle crunch exercise is described as one of the most effective exercises that best work the rectus abdominus, strengthen the abdominal muscles and support six-pack formation.")
         new_exercises_80=Exercises(name='T-CROSS SIT-UP', burnt_calories=0, muscle_id=8, description="It works all the abdominal muscles: The T-Cross sit-up exercise targets the rectus abdominus and oblique muscles.")
 
         db.session.add(new_exercises_1)
@@ -324,3 +324,35 @@ def get_exermusclegroup(id):
     }
 
     return jsonify(response_body), 200
+
+@api.route('/listtrack/<int:id>', methods=['GET'])
+def get_listracks(id):
+    tracker_free = Tracker_free.query.filter_by(freeuser_id=id)
+    result = list(map(lambda tracker_free: tracker_free.serialize(), tracker_free))
+    
+    tracker_pred = Tracker_pred.query.filter_by(user_id=id)
+    result2 = list(map(lambda tracker_pred: tracker_pred.serialize(), tracker_pred))
+
+    response_body = {
+        "Free_routines": result,
+        "Predetermined_routines": result2
+
+    }
+
+    return jsonify(response_body), 200
+
+""" @api.route('/listtrack/<int:id>', methods=['GET'])
+def get_listracks(id):
+    tracker_free = Tracker_free.query.filter_by(freeuser_id=id)
+    result = list(map(lambda tracker_free: tracker_free.serialize(), tracker_free))
+    
+    tracker_pred = Tracker_pred.query.filter_by(user_id=id)
+    result2 = list(map(lambda tracker_pred: tracker_pred.serialize(), tracker_pred))
+
+    response_body = {
+        "Free_routines": result,
+        "Predetermined_routines": result2
+
+    }
+
+    return jsonify(response_body), 200 """
