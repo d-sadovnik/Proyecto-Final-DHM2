@@ -1,6 +1,6 @@
 
 import click
-from api.models import db, User, Profile, Muscles, Exercises, Muscle_group, Predetermined_routines, Tracker_pred,Free_routine, Tracker_free
+from api.models import db, User, Muscles, Exercises, Muscle_group, Predetermined_routines, Tracker_pred,Free_routine, Tracker_free
 
 """
 In this file, you can add as many commands as you want using the @app.cli.command decorator

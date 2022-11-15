@@ -3,14 +3,13 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 import random
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Profile, Muscles, Exercises, Muscle_group, Predetermined_routines, Tracker_pred, Free_routine, Tracker_free
+from api.models import db, User, Muscles, Exercises, Muscle_group, Predetermined_routines, Tracker_pred, Free_routine, Tracker_free
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
 api = Blueprint('api', __name__)
-
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -58,7 +57,6 @@ def handle_login():
     }
     return jsonify(response_body), 200    
 
-
 @api.route('/cargardatosgrupomuscular', methods=['GET'])
 def cargar_datos():
     grupos_musculares = Muscle_group.query.all()
@@ -75,7 +73,6 @@ def cargar_datos():
 
         db.session.commit()
     return jsonify({'msg': 'datos cargados'}), 200
-
 
 @api.route('/cargardatosmusculo', methods=['GET'])
 def cargar_musculos():
@@ -102,7 +99,6 @@ def cargar_musculos():
         db.session.commit()
 
     return jsonify({'msg': 'datos cargados'}), 200
-
 
 @api.route('/cargardatosejercicios', methods=['GET'])
 def cargar_ejercicios():
@@ -341,18 +337,15 @@ def get_listracks(id):
 
     return jsonify(response_body), 200
 
-""" @api.route('/listtrack/<int:id>', methods=['GET'])
-def get_listracks(id):
-    tracker_free = Tracker_free.query.filter_by(freeuser_id=id)
-    result = list(map(lambda tracker_free: tracker_free.serialize(), tracker_free))
+@api.route('/profileinfo/<int:id>', methods=['GET'])
+def get_profileinfo(id):
+    userprofile = User.query.filter_by(id=id)
+    result = list(map(lambda user: user.serialize(), userprofile))
     
-    tracker_pred = Tracker_pred.query.filter_by(user_id=id)
-    result2 = list(map(lambda tracker_pred: tracker_pred.serialize(), tracker_pred))
-
     response_body = {
-        "Free_routines": result,
-        "Predetermined_routines": result2
+        "Profile": result
 
     }
 
-    return jsonify(response_body), 200 """
+    return jsonify(response_body), 200 
+
