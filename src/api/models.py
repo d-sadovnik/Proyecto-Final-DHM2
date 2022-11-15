@@ -12,8 +12,8 @@ class User(db.Model, SerializerMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     user_custom_name = db.Column(db.String(80), unique=False, nullable=True)
-    name = db.Column(db.String(120), unique=True, nullable=False)
-    last_name = db.Column(db.String(120), unique=True, nullable=False)
+    name = db.Column(db.String(120), unique=True, nullable=True)
+    last_name = db.Column(db.String(120), unique=True, nullable=True)
     is_active = db.Column(db.Boolean(), unique=False, nullable=True)
     profile = db.relationship(
         "Profile", back_populates="user_custom_name", uselist=False)

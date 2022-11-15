@@ -16,6 +16,7 @@ from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
 from datetime import datetime
+from flask_mail import Mail
 
 
 #from models import Person
@@ -28,6 +29,21 @@ app.url_map.strict_slashes = False
 app.config["JWT_SECRET_KEY"] = "sdfsfs"
 Jwt = JWTManager(app)
 
+mail_settings = {
+    "MAIL_SERVER": 'smtp.mailtrap.io',
+    "MAIL_PORT":  2525,
+    "MAIL_USE_TLS": True,
+    "MAIL_USE_SSL": False,
+    "MAIL_USERNAME":  'c7498a8e23e148',  # ACA COLOQUEN EL CORREO DE LA APP DEL ALUMN
+    "MAIL_PASSWORD": '78831d1d3b4664',  # PASSWORD DEL CORREO DE LA APP DEL ALUMNO
+    "MAIL_DEFAULT_SENDER": 'c7498a8e23e148'
+}
+
+app.config.update(mail_settings)
+mail = Mail(app)
+# agregan mail a la app y se va llamar en routes.py como current_app
+app.mail = mail
+# FIN CONFIGURACION EMAIL
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")

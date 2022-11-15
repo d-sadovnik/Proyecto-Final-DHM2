@@ -43,6 +43,7 @@ const Layout = () => {
 
                 <Route element={<Profile />} path="/profile" />
                 <Route element={<Tracker />} path="/tracker" />
+                <Route element={<Tracker />} path="/routines" />
               </>
             )}
 
