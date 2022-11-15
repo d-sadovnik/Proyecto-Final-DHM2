@@ -87,11 +87,9 @@ export const Signup = () => {
               <div className="form-link">
                 <span>
                   Already have an account?{" "}
-                  <a>
-                    <Link class="nav-link" to="/login">
-                      Login
-                    </Link>
-                  </a>
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
                 </span>
               </div>
             </form>

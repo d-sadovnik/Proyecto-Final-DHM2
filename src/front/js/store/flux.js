@@ -1,3 +1,5 @@
+const apiUrl = process.env.BACKEND_URL;
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -14,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           initial: "white",
         },
       ],
+      logeado: false,
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -50,16 +53,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       signup: async (body) => {
         console.log(body);
         try {
-          const resp = await fetch(
-            "https://3001-dsadovnik-proyectofinal-xspeyvaxuav.ws-us74.gitpod.io/api/signup",
-            {
-              method: "POST",
-              body: JSON.stringify(body),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+          const resp = await fetch(apiUrl + "/signup", {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          });
           const data = await resp.json();
           console.log(data);
           return data;
@@ -69,22 +70,20 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       login: async (body) => {
         try {
-          const resp = await fetch(
-            "https://3001-dsadovnik-proyectofinal-xspeyvaxuav.ws-us74.gitpod.io/api/login",
-            {
-              method: "POST",
-              body: JSON.stringify(body),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+          const resp = await fetch(process.env.BACKEND_URL + "/login", {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
           const data = await resp.json();
           //   setStore({ accessToken: data.accessToken });
           //   setStore({ user: { nombre: data.nombre } });
           //   localStorage.setItem("accessToken", data.accessToken);
           localStorage.setItem("id", data.id);
           console.log(data);
+          setStore({ logeado: true });
           return data;
         } catch (error) {
           console.log("Error login", error);
