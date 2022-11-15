@@ -39,13 +39,16 @@ export const Navbar = () => {
                 </li>
               ) : (
                 <>
-                  <Link className="nav-link" aria-current="page" to="/signup">
-                    Signup
-                  </Link>
-
-                  <Link className="nav-link" to="/login">
-                    Login
-                  </Link>
+                  <li>
+                    <Link className="nav-link" aria-current="page" to="/signup">
+                      Signup
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="nav-link" to="/login">
+                      Login
+                    </Link>
+                  </li>
                 </>
               )}
             </li>

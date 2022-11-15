@@ -9,11 +9,11 @@ db = SQLAlchemy()
 class User(db.Model, SerializerMixin):
     __tablename__ = "user_table"
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=True)
-    password = db.Column(db.String(80), unique=False, nullable=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(80), unique=False, nullable=False)
     user_custom_name = db.Column(db.String(80), unique=False, nullable=True)
-    name = db.Column(db.String(120), unique=True, nullable=True)
-    last_name = db.Column(db.String(120), unique=True, nullable=True)
+    name = db.Column(db.String(120), unique=True, nullable=False)
+    last_name = db.Column(db.String(120), unique=True, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=True)
     profile = db.relationship(
         "Profile", back_populates="user_custom_name", uselist=False)
@@ -36,11 +36,11 @@ class Profile(db.Model, SerializerMixin):
     __tablename__ = "profile_table"
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
-    age = db.Column(db.Integer, unique=True, nullable=False)
-    height = db.Column(db.Float, unique=True, nullable=False)
-    weight = db.Column(db.Float, unique=True, nullable=False)
-    bmi = db.Column(db.Float, unique=True, nullable=False)
-    fat_percentage = db.Column(db.Float, unique=True, nullable=False)
+    age = db.Column(db.Integer, unique=False, nullable=False)
+    height = db.Column(db.Float, unique=False, nullable=False)
+    weight = db.Column(db.Float, unique=False, nullable=False)
+    bmi = db.Column(db.Float, unique=False, nullable=False)
+    fat_percentage = db.Column(db.Float, unique=False, nullable=False)
     user_custom_name = db.relationship("User", back_populates="profile")
 
     def __repr__(self):
@@ -130,7 +130,7 @@ class Tracker_free(db.Model, SerializerMixin):
     burnt_cals = db.Column(db.Float, unique=False, nullable=False)
     total_distance = db.Column(db.Float, unique=False, nullable=False)
     daily_steps = db.Column(db.Float, unique=False, nullable=False)
-    date = db.Column(db.Date, unique=True, nullable=False)
+    date = db.Column(db.Date, unique=False, nullable=False)
     routine = db.relationship("Free_routine", back_populates="track_free")
     freeuser_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
     freeuser = db.relationship("User", back_populates="freetracker")
