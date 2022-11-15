@@ -7,7 +7,8 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(69, 65, 65);
-  background-size: 100%;
+  background-size: 130%;
+  background-position-y: 700px;
 }
 
 .contentFree{
@@ -18,7 +19,7 @@
   background-color:#FFF;
   align-items: center;
   justify-content: center;
-  opacity: 75%;
+  opacity: 85%;
 }
 
 .freeLabel {
