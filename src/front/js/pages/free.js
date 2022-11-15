@@ -14,7 +14,7 @@ export const Free = () => {
           style={{ backgroundImage: `url(${background})` }}
         >
           <div className="contentFree">
-              <header className="freeHeader">Select Muscles</header>
+              <header className="freeHeader">Target Muscles</header>
 
               <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
