@@ -13,52 +13,50 @@ export const Free = () => {
           className="containerfree"
           style={{ backgroundImage: `url(${background})` }}
         >
-          <div className="form login">
-            <div className="form-content">
-              <header>Select Muscles</header>
+          <div className="free form">
+            <div className="free form-content">
+              <header className="free header">Select Muscles</header>
 
-              <form action="#">
               <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
-                  <label for="biceps">Shoulders</label>
+                  <label className="free label" for="biceps">Shoulders</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div>
                 <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
-                  <label for="biceps">Triceps</label>
+                  <label className="free label" for="biceps">Triceps</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div>
                 <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
-                  <label for="biceps">Biceps</label>
+                  <label className="free label" for="biceps">Biceps</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div>
                 <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
-                  <label for="biceps">Chest</label>
+                  <label className="free label" for="biceps">Chest</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div>
                 <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
-                  <label for="biceps">Back</label>
+                  <label className="free label" for="biceps">Back</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div>
                 <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
-                  <label for="biceps">Legs</label>
+                  <label className="free label" for="biceps">Legs</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div>
                 <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
-                  <label for="biceps">Core</label>
+                  <label className="free label" for="biceps">Core</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div>
 
-                <div className="field button-field">
+                <div className="free button">
                   <button>Generate Routine</button>
                 </div>
                 
-              </form>
             </div>
           </div>
         </section>

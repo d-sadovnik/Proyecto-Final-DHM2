@@ -1,15 +1,7 @@
-import { Context } from "../store/appContext";
-import "../../styles/profile.css";
+import React from "react";
+import "../../styles/tracker.css";
 import background from "./../../img/picfondo2.jpg";
-import avatarpic from "./../../img/avatar-profile-2.png";
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
-<link
-  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-  rel="stylesheet"
-></link>;
 
 export const Tracker = () => {
   return (
