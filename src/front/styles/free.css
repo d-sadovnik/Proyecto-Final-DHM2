@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.containerfree {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(69, 65, 65);
+  background-size: 100%;
+}
+
+label{
+    padding:10px;
+}
+
+.muscles{
+    display: flex;
+    justify-content: center;
+}
+
+#muscleCheck{
+  height:30px;
+  width: 30px;
+  margin-top: 7px;
+}
+
+#numberOfexercises{
+    width: 40px;
+    height: 30px;
+    margin-top: 6px;
+}
+
+.form {
+  height:80%;
+  max-width: 430px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 50px;
+  background-color:#FFF;
+  opacity: 75%;
+  border-style:solid;
+  border-width: 5px;
+  border-color: rgb(57, 54, 49);
+}
+
+header {
+  font-size: 40px;
+  font-weight: 600;
+  color: whitesmoke;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  background-color: rgb(121, 75, 28);
+  border-radius: 10px;
+}
+
+
+
+form .field {
+  height: 45px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.field input,
+.field button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+}
+
+.field button {
+    background-color: rgb(133, 101, 5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:250px;
+    margin-left: 62px;
+  }
+
+.field button:hover {
+    background-color: rgb(126, 71, 0);
+    color:#FFF;
+    font-size: 25px;
+    transform: scale(110%);
+  }
+
+.field input {
+  padding: 0 15px;
+  border: 1px solid #cacaca;
+}
+
+.form-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-link span,
+.form-link a {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.form a {
+  text-decoration: none;
+}
+
+.form a:hover {
+  text-decoration: underline;
+}
