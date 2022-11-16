@@ -111,6 +111,29 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error registro", error);
         }
       },
+
+      exercisedb: async (body) => {
+        console.log(body);
+        try {
+          const resp = await fetch(
+            "https://exercisedb.p.rapidapi.com/exercises",
+            {
+              method: "GET",
+              headers: {
+                "X-RapidAPI-Key":
+                  "900f8fa783msh18fba5f9e2a4c3bp1b7bbfjsne95fd5d48576",
+
+                "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+              },
+            }
+          );
+          const data = await resp.json();
+          console.log(data);
+          return data;
+        } catch (error) {
+          console.log("Error registro", error);
+        }
+      },
     },
   };
 };
