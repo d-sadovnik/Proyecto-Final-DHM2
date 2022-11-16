@@ -65,7 +65,7 @@
 }
 
 .free button {
-  background-color: rgb(211, 160, 7);
+  background-color: rgb(162, 68, 0);
   transition: all 0.3s ease;
   cursor: pointer;
   display: flex;
@@ -80,7 +80,7 @@
 }
 
 .free button:hover {
-  background-color: rgb(70, 58, 1);
+  background-color: rgb(70, 27, 1);
   color: #fff;
   font-size: 20px;
   transform: scale(110%);
