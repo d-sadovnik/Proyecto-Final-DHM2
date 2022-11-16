@@ -8,7 +8,7 @@
   justify-content: center;
   background-color: rgb(69, 65, 65);
   background-size: 130%;
-  background-position-y: 700px;
+ 
 }
 
 .contentDefault{
@@ -20,6 +20,8 @@
   align-items: center;
   justify-content: center;
   opacity: 85%;
+  margin-bottom: 20px;
+  margin-top:20px;
 }
 
 .defaultLabel {

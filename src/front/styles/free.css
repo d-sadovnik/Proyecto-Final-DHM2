@@ -20,6 +20,8 @@
   align-items: center;
   justify-content: center;
   opacity: 85%;
+  margin-bottom: 20px;
+  margin-top:20px;
 }
 
 .freeLabel {
