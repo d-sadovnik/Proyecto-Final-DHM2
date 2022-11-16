@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-.containerfree {
+.containerdefault {
   height: 100%;
   width: 100%;
   display: flex;
@@ -11,7 +11,7 @@
   background-position-y: 700px;
 }
 
-.contentFree{
+.contentDefault{
   max-width: 400px;
   width: 100%;
   padding: 30px;
@@ -22,7 +22,7 @@
   opacity: 85%;
 }
 
-.freeLabel {
+.defaultLabel {
   padding: 10px;
 
 }
@@ -47,11 +47,11 @@
 
 
 
-.freeHeader {
+.defaultHeader {
   font-size: 35px;
   font-weight: 600;
   color: black;
-  text-shadow: 1px 1px 15px rgb(148, 84, 0);
+  text-shadow: 1px 1px 15px rgb(138, 148, 0);
   text-align: center;
   display: flex;
   justify-content: center;
@@ -64,8 +64,8 @@
   text-decoration: underline 2px rgba(0, 0, 0, 0.3);
 }
 
-.free button {
-  background-color: rgb(162, 68, 0);
+.default button {
+  background-color: rgb(190, 181, 0);
   transition: all 0.3s ease;
   cursor: pointer;
   display: flex;
@@ -80,15 +80,15 @@
   color: #FFF;
 }
 
-.free button:hover {
-  background-color: rgb(70, 27, 1);
+.default button:hover {
+  background-color: rgb(66, 70, 1);
   color: #fff;
   font-size: 20px;
   transform: scale(110%);
   text-shadow:2px 2px 10px rgb(234, 255, 0);
 }
 
-.freeLabel {
+.defaultLabel {
   background:none;
   opacity:50%;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.84);
@@ -97,7 +97,7 @@
   overflow: hidden;
 }
 
-input[type="checkbox"]:checked~.freeLabel{
+input[type="checkbox"]:checked~.defaultLabel{
   color:rgb(3, 0, 0);
   font-weight: bolder;
   text-shadow: 1px 1px 7px 50px #f8be00;
