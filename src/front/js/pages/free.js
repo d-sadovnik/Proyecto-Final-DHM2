@@ -7,13 +7,13 @@ import { Link, useParams } from "react-router-dom";
 import "../../styles/free.css";
 
 export const Free = () => {
-  const [checkone,setCheckone] = useState(false)
-  const{store,actions}=useContext(Context);
-  const params=useParams();
-  useEffect(()=>{
-    if (params.theid) actions.get_muscles(params.theid);
-  },[params.theid])
-  console.log(store.muscles)
+  const [checkone, setCheckone] = useState(false);
+  const { store, actions } = useContext(Context);
+  const params = useParams();
+  useEffect(() => {
+    actions.get_muscles();
+  }, []);
+  console.log(store.muscles);
   return (
     <div>
       <>
@@ -22,14 +22,47 @@ export const Free = () => {
           style={{ backgroundImage: `url(${background})` }}
         >
           <div className="contentFree">
-              <header className="freeHeader">Target Muscles</header>
+            <header className="freeHeader">Target Muscles</header>
 
-              <div className="muscles">
-                  <input type="checkbox" checked={checkone} onChange={(e)=>setCheckone(e.target.checked)} id="muscleCheck" name="interest" value="biceps" />
-                  <label className="freeLabel">{store.muscles?.muscle_name}</label>
-                  <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
+            <div className="muscles">
+              <input
+                type="checkbox"
+                checked={checkone}
+                onChange={(e) => setCheckone(e.target.checked)}
+                id="muscleCheck"
+                name="interest"
+                value="biceps"
+              />
+              <label className="freeLabel">{store.muscles?.muscle_name}</label>
+              <input
+                type="number"
+                id="numberOfexercises"
+                name="numberofexercises"
+                placeholder="#"
+              />
+            </div>
+            <div>
+              {store.muscles.map((item, index) => (
+                <div className="muscles">
+                  <input
+                    type="checkbox"
+                    checked={checkone}
+                    onChange={(e) => setCheckone(e.target.checked)}
+                    id="muscleCheck"
+                    name="interest"
+                    value="biceps"
+                  />
+                  <label className="freeLabel">{item.muscles}</label>
+                  <input
+                    type="number"
+                    id="numberOfexercises"
+                    name="numberofexercises"
+                    placeholder="#"
+                  />
                 </div>
-                {/* <div className="muscles">
+              ))}
+            </div>
+            {/* <div className="muscles">
                   <input type="checkbox" id="muscleCheck" name="interest" value="biceps" />
                   <label className="freeLabel" for="biceps">Triceps</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
@@ -59,17 +92,16 @@ export const Free = () => {
                   <label className="freeLabel" for="biceps">Core</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div> */}
-                
-                <div className="free button">
-                <Link to="/dayroutine" className="linktoroutine">
-                  <button>Generate Routine</button>
-                  </Link>
-                </div>
-                
+
+            <div className="free button">
+              <Link to="/dayroutine" className="linktoroutine">
+                <button>Generate Routine</button>
+              </Link>
             </div>
+          </div>
         </section>
       </>
     </div>
   );
 };
-Free.propTypes={match:PropTypes.object,};
+Free.propTypes = { match: PropTypes.object };
