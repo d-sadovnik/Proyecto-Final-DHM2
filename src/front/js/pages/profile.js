@@ -12,7 +12,10 @@ import { useNavigate } from "react-router-dom";
 ></link>;
 
 export const Profile = () => {
+  const { store } = useContext(Context);
   return (
+    <>
+    {store.logeado ? (
     <div
       className="profilebackground"
       style={{ backgroundImage: `url(${background})` }}
@@ -197,5 +200,9 @@ export const Profile = () => {
         </div>
       </div>
     </div>
+    ) : (
+      <h1>NO PUEDES ESTAR AQUI</h1>
+      )}
+      </>
   );
 };
