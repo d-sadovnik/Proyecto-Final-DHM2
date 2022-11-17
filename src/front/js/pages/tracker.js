@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/tracker.css";
 import background from "./../../img/picfondo2.jpg";
-
 
 export const Tracker = () => {
   const { store } = useContext(Context);

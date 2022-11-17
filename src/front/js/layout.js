@@ -31,26 +31,19 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
-            {/* {!logeado ? ( */}
             <>
-              {/* RUTA PARA EL USUARIO NO LOGEADO */}
               <Route element={<Login />} path="/login" />
               <Route element={<Signup />} path="/signup" />
             </>
-            {/* ) : ( */}
             <>
-              {/* RUTA PARA EL USUARIO LOGEADO */}
-
               <Route element={<Profile />} path="/profile" />
               <Route element={<Tracker />} path="/tracker" />
               <Route element={<Routines />} path="/routines" />
             </>
-            {/* )} */}
-
-            {/*
             <Route element={<Routines />} path="/routines" />
-  <Route element={<Free />} path="/free" />
-            <Route element={<Default />} path="/default" />*/}
+            <Route element={<Free />} path="/free" />
+            <Route element={<Default />} path="/default" />
+
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Navigate to="/" />} path="*" />
           </Routes>

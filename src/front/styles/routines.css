@@ -10,25 +10,25 @@
 }
 
 .containerRoutines0 {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(119, 125, 10);
-    background-size: 100%;
-    transition: 0.8s;
-  }
-  .containerRoutines1 {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(132, 74, 6);
-    background-size: 100%;
-    transition: 0.8s;
-  }
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(119, 125, 10);
+  background-size: 100%;
+  transition: 0.8s;
+}
+.containerRoutines1 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(132, 74, 6);
+  background-size: 100%;
+  transition: 0.8s;
+}
 
 .content {
   position: relative;
@@ -47,16 +47,16 @@
 }
 
 .content .imgDefault .defaultpic {
-    width: 350px;
-    border-style:solid;
-    border-color: white;
-    transition: 0.5s;
-    border-radius:15px ;
-  }
+  width: 350px;
+  border-style: solid;
+  border-color: white;
+  transition: 0.5s;
+  border-radius: 15px;
+}
 
-  .content .imgDefault .defaultpic:hover {
-    transform: scale(115%);
-  }
+.content .imgDefault .defaultpic:hover {
+  transform: scale(115%);
+}
 
 .content .imgFree {
   width: 300px;
@@ -67,13 +67,13 @@
 }
 
 .content .imgFree .freepic {
-    width: 350px;
-    border-style:solid;
-    border-color: white;
-    transition: 0.5s;
-    border-radius:15px ;
-  }
+  width: 350px;
+  border-style: solid;
+  border-color: white;
+  transition: 0.5s;
+  border-radius: 15px;
+}
 
-  .content .imgFree .freepic:hover {
-    transform: scale(115%);
-  }
+.content .imgFree .freepic:hover {
+  transform: scale(115%);
+}
