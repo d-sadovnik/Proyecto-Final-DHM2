@@ -57,8 +57,8 @@ export const Footer = () => (
       </section>
       {/* Section: Social media */}
       {/* Section: Form */}
-      <section className>
-        <form action>
+      <section>
+        <form>
           {/*Grid row*/}
           <div className="row d-flex justify-content-center">
             {/*Grid column*/}
@@ -107,7 +107,7 @@ export const Footer = () => (
       </section>
       {/* Section: Text */}
       {/* Section: Links */}
-      
+
       {/* Section: Links */}
     </div>
     {/* Grid container */}

@@ -1,16 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LOGO from "../../img/logo3.png";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-      <div class="container-fluid">
-        <Link class="navbar-brand" to="/">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-black">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">
           <img src={LOGO} />
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -18,32 +19,50 @@ export const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <Link class="nav-link" aria-current="page" to="/signup">
-                Signup
-              </Link>
-            </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/routines">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto d-flex">
+            {localStorage.getItem("token") ? (
+              <li className="nav-item">
+                <button
+                  className="nav-link btn btn-black"
+                  aria-current="page"
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    navigate("/login");
+                  }}
+                >
+                  Log out
+                </button>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link className="nav-link" aria-current="page" to="/signup">
+                    Signup
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+              </>
+            )}
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/routines">
                 Routines
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/tracker">
+            <li className="nav-item">
+              <Link className="nav-link" to="/tracker">
                 Tracker
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/profile">
+            <li className="nav-item">
+              <Link className="nav-link" to="/profile">
                 Profile
               </Link>
             </li>

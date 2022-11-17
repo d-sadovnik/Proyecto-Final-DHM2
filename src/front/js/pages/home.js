@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import background from "../../img/dark-background-for-home.jpg";
 import boostresults from "../../img/Home-boost-2.gif";
 import limitbreaker from "../../img/Home-limitbreaker-2.gif";
-import trackresults from "../../img/track-results3.gif"
+import trackresults from "../../img/track-results3.gif";
 import thumb1 from "../../img/icon-results.png";
 import thumb2 from "../../img/icon-chart.png";
 import thumb3 from "../../img/icon-dumbell.png";
@@ -31,15 +31,20 @@ export const Home = () => {
             is designed to suit the needs of beginners and experts alike, to
             guide you in your fitness journey for the long run.
           </p>
-          <a>
-            <Link class="nav-link" to="/signup">
-              START NOW
-            </Link>
-          </a>
+
+          <Link className="nav-link" to="/signup">
+            START NOW
+          </Link>
         </div>
         <div className="imgBox">
           <img
-            src={type === 0 ? boostresults : type === 1 ? limitbreaker : trackresults}
+            src={
+              type === 0
+                ? boostresults
+                : type === 1
+                ? limitbreaker
+                : trackresults
+            }
             alt="..."
             className="homepic"
           />

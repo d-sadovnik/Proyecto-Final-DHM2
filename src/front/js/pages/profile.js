@@ -15,6 +15,7 @@ export const Profile = () => {
   const { store } = useContext(Context);
   return (
     <>
+
     {store.logeado ? (
     <div
       className="profilebackground"
@@ -62,139 +63,170 @@ export const Profile = () => {
                     type="text"
                     placeholder="Type your username"
                   />
-                </div>
-                {/* <!-- Form Row--> */}
-                <div className="row gx-3 mb-3">
-                  {/* <!-- Form Group (first name)--> */}
-                  <div className="col-md-6">
-                    <label className="small mb-1" for="inputFirstName">
-                      First name
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputFirstName"
-                      type="text"
-                      placeholder="Type your first name"
-                    />
+                  {/* <!-- Profile picture help block--> */}
+                  <div className="small font-italic text-muted mb-4">
+                    JPG or PNG no larger than 5 MB
                   </div>
-                  {/* <!-- Form Group (last name)--> */}
-                  <div className="col-md-6">
-                    <label className="small mb-1" for="inputLastName">
-                      Last name
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputLastName"
-                      type="text"
-                      placeholder="Type your last name"
-                    />
+                  {/* <!-- Profile picture upload button--> */}
+                  <div className="field button-field">
+                    <button>Upload new image</button>
                   </div>
                 </div>
-                {/* <!-- Form Row --> */}
-                <div className="row gx-3 mb-3">
-                  {/* <!-- Form Group (height)--> */}
-                  <div className="col-md-3">
-                    <label className="small mb-1" for="inputOrgName">
-                      Height
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputOrgName"
-                      type="text"
-                      placeholder="Height in CM"
-                    />
-                  </div>
-                  {/* <!-- Form Group (weight)--> */}
-                  <div className="col-md-3">
-                    <label className="small mb-1" for="inputLocation">
-                      Weight
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputLocation"
-                      type="text"
-                      placeholder="Weight in KG"
-                    />
-                  </div>
-                  {/* <!-- Form Group (bodyfat)--> */}
-                  <div className="col-md-3">
-                    <label className="small mb-1" for="inputLocation">
-                      Body Fat
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputLocation"
-                      type="text"
-                      placeholder="Body fat in %"
-                    />
-                  </div>
-                  {/* <!-- Form Group (muscle mass)--> */}
-                  <div className="col-md-3">
-                    <label className="small mb-1" for="inputLocation">
-                      Muscle Mass
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputLocation"
-                      type="text"
-                      placeholder="Muscle mass in KG"
-                    />
-                  </div>
-                </div>
-                {/* <!-- Form Group (email address)--> */}
-                <div className="mb-3">
-                  <label className="small mb-1" for="inputEmailAddress">
-                    Email address
-                  </label>
-                  <input
-                    className="form-control"
-                    id="inputEmailAddress"
-                    type="email"
-                    placeholder="Type your email address"
-                  />
-                </div>
-                {/* <!-- Form Row--> */}
-                <div className="row gx-3 mb-3">
-                  {/* <!-- Form Group (phone number)--> */}
-                  <div className="col-md-6">
-                    <label className="small mb-1" for="inputPhone">
-                      Phone number
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputPhone"
-                      type="number"
-                      placeholder="Type your phone number"
-                    />
-                  </div>
-                  {/* <!-- Form Group (birthday)--> */}
-                  <div className="col-md-6">
-                    <label className="small mb-1" for="inputBirthday">
-                      Birthday
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputBirthday"
-                      type="text"
-                      name="birthday"
-                      placeholder="Type your birthday"
-                    />
-                  </div>
-                </div>
-                {/* <!-- Save changes button--> */}
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="field button">
-                      <button>Save changes</button>
+              </div>
+            </div>
+            <div className="col-xl-8 w-75 mx-auto">
+              {/* <!-- Account details card--> */}
+              <div className="card mb-4">
+                <div className="card-header">Account Details</div>
+                <div className="card-body">
+                  <form>
+                    {/* <!-- Form Group (username)--> */}
+                    <div className="mb-3">
+                      <label className="small mb-1" for="inputUsername">
+                        Username (how your name will appear to other users on
+                        the site)
+                      </label>
+                      <input
+                        className="form-control"
+                        id="inputUsername"
+                        type="text"
+                        placeholder="Type your username"
+                      />
                     </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="field button">
-                      <button>View history</button>
+                    {/* <!-- Form Row--> */}
+                    <div className="row gx-3 mb-3">
+                      {/* <!-- Form Group (first name)--> */}
+                      <div className="col-md-6">
+                        <label className="small mb-1" for="inputFirstName">
+                          First name
+                        </label>
+                        <input
+                          className="form-control"
+                          id="inputFirstName"
+                          type="text"
+                          placeholder="Type your first name"
+                        />
+                      </div>
+                      {/* <!-- Form Group (last name)--> */}
+                      <div className="col-md-6">
+                        <label className="small mb-1" for="inputLastName">
+                          Last name
+                        </label>
+                        <input
+                          className="form-control"
+                          id="inputLastName"
+                          type="text"
+                          placeholder="Type your last name"
+                        />
+                      </div>
                     </div>
-                  </div>
+                    {/* <!-- Form Row --> */}
+                    <div className="row gx-3 mb-3">
+                      {/* <!-- Form Group (height)--> */}
+                      <div className="col-md-3">
+                        <label className="small mb-1" for="inputOrgName">
+                          Height
+                        </label>
+                        <input
+                          className="form-control"
+                          id="inputOrgName"
+                          type="text"
+                          placeholder="Height in CM"
+                        />
+                      </div>
+                      {/* <!-- Form Group (weight)--> */}
+                      <div className="col-md-3">
+                        <label className="small mb-1" for="inputLocation">
+                          Weight
+                        </label>
+                        <input
+                          className="form-control"
+                          id="inputLocation"
+                          type="text"
+                          placeholder="Weight in KG"
+                        />
+                      </div>
+                      {/* <!-- Form Group (bodyfat)--> */}
+                      <div className="col-md-3">
+                        <label className="small mb-1" for="inputLocation">
+                          Body Fat
+                        </label>
+                        <input
+                          className="form-control"
+                          id="inputLocation"
+                          type="text"
+                          placeholder="Body fat in %"
+                        />
+                      </div>
+                      {/* <!-- Form Group (muscle mass)--> */}
+                      <div className="col-md-3">
+                        <label className="small mb-1" for="inputLocation">
+                          Muscle Mass
+                        </label>
+                        <input
+                          className="form-control"
+                          id="inputLocation"
+                          type="text"
+                          placeholder="Muscle mass in KG"
+                        />
+                      </div>
+                    </div>
+                    {/* <!-- Form Group (email address)--> */}
+                    <div className="mb-3">
+                      <label className="small mb-1" for="inputEmailAddress">
+                        Email address
+                      </label>
+                      <input
+                        className="form-control"
+                        id="inputEmailAddress"
+                        type="email"
+                        placeholder="Type your email address"
+                      />
+                    </div>
+                    {/* <!-- Form Row--> */}
+                    <div className="row gx-3 mb-3">
+                      {/* <!-- Form Group (phone number)--> */}
+                      <div className="col-md-6">
+                        <label className="small mb-1" for="inputPhone">
+                          Phone number
+                        </label>
+                        <input
+                          className="form-control"
+                          id="inputPhone"
+                          type="number"
+                          placeholder="Type your phone number"
+                        />
+                      </div>
+                      {/* <!-- Form Group (birthday)--> */}
+                      <div className="col-md-6">
+                        <label className="small mb-1" for="inputBirthday">
+                          Birthday
+                        </label>
+                        <input
+                          className="form-control"
+                          id="inputBirthday"
+                          type="text"
+                          name="birthday"
+                          placeholder="Type your birthday"
+                        />
+                      </div>
+                    </div>
+                    {/* <!-- Save changes button--> */}
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="field button">
+                          <button>Save changes</button>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="field button">
+                          <button>View history</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
