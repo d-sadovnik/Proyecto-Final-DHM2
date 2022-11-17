@@ -395,6 +395,16 @@ def get_musclegroup():
 
     return jsonify(response_body), 200
 
+@api.route('/listexercises', methods=['GET'])
+def get_exercises():
+    exercises = Exercises.query.filter().all()
+    result = list(map(lambda exercises: exercises.serialize(), exercises))
+
+    response_body = {
+    "Exercises": result
+    }
+
+    return jsonify(response_body), 200
 
 @api.route('/listmuscle/<int:id>/<int:qty>', methods=['GET'])
 def get_exermuscleqty(id, qty):

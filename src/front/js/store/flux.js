@@ -4,6 +4,9 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       message: null,
+      muscles:[],
+      musclegroup:[],
+      exercises:[],
       demo: [
         {
           title: "FIRST",
@@ -23,7 +26,30 @@ const getState = ({ getStore, getActions, setStore }) => {
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
-
+      get_muscles:(id) => {
+        fetch(process.env.BACKEND_URL + "/api/listmuscle")
+          .then((resp) => resp.json())
+          .then((resp) => setStore({muscles: resp.result.properties}))
+          .catch((err) => console.error(err));
+      },
+      get_musclegroup:(id) => {
+        fetch(process.env.BACKEND_URL + "/api/listmusclegroup")
+          .then((resp) => resp.json())
+          .then((resp) => setStore({musclegroup: resp.result.properties}))
+          .catch((err) => console.error(err));
+      },
+      get_exercises:(id) => {
+        fetch(process.env.BACKEND_URL + "/api/listexercises")
+          .then((resp) => resp.json())
+          .then((resp) => setStore({exercises: resp.result.properties}))
+          .catch((err) => console.error(err));
+      },
+      get_exermuscleqty:(id) => {
+        fetch(process.env.BACKEND_URL + "/api/listmuscle/<int:id>/<int:qty>")
+          .then((resp) => resp.json())
+          .then((resp) => setStore({exercises: resp.result.properties}))
+          .catch((err) => console.error(err));
+       },
       getMessage: async () => {
         try {
           // fetching data from the backend

@@ -11,6 +11,7 @@ import { Profile } from "./pages/profile";
 import { Tracker } from "./pages/tracker";
 import { Routines } from "./pages/routines";
 import { Free } from "./pages/free";
+import { Dayroutine } from "./pages/dayroutine";
 import { Default } from "./pages/default";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -43,6 +44,7 @@ const Layout = () => {
             <Route element={<Routines />} path="/routines" />
             <Route element={<Free />} path="/free" />
             <Route element={<Default />} path="/default" />
+            <Route element={<Dayroutine />} path="/dayroutine" />
 
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Navigate to="/" />} path="*" />
