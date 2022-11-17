@@ -66,6 +66,20 @@ def handle_login():
     return jsonify(response_body), 200
 
 
+@api.route('/logeado', methods=['GET'])
+@jwt_required()
+def logeado():
+    usuario_actual = get_jwt_identity()
+    user = User.query.filter_by(email=usuario_actual).first()
+    if user is None:
+        raise APIException(False, status_code=401)
+    response_body = {
+        "message": True,
+
+    }
+    return jsonify(response_body), 200
+
+
 @api.route("/forgotpassword", methods=["PUT"])
 def forgotpassword():
     recover_email = request.json['email']
@@ -395,16 +409,18 @@ def get_musclegroup():
 
     return jsonify(response_body), 200
 
+
 @api.route('/listexercises', methods=['GET'])
 def get_exercises():
     exercises = Exercises.query.filter().all()
     result = list(map(lambda exercises: exercises.serialize(), exercises))
 
     response_body = {
-    "Exercises": result
+        "Exercises": result
     }
 
     return jsonify(response_body), 200
+
 
 @api.route('/listmuscle/<int:id>/<int:qty>', methods=['GET'])
 def get_exermuscleqty(id, qty):

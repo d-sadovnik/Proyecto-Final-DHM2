@@ -107,6 +107,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error registro", error);
         }
       },
+
       login: async (body) => {
         try {
           const resp = await fetch(process.env.BACKEND_URL + "/api/login", {
@@ -119,13 +120,35 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = await resp.json();
           //   setStore({ accessToken: data.accessToken });
           //   setStore({ user: { nombre: data.nombre } });
-          //   localStorage.setItem("accessToken", data.accessToken);
-          localStorage.setItem("id", data.id);
+          localStorage.setItem("accessToken", data.accessToken);
+
           console.log(data);
           setStore({ logeado: true });
           return data;
         } catch (error) {
           console.log("Error login", error);
+        }
+      },
+
+      logeado: async () => {
+        try {
+          const resp = await fetch(process.env.BACKEND_URL + "/api/logeado", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("accessToken"),
+            },
+          });
+          const data = await resp.json();
+          if (data.message == true) {
+            setStore({ logeado: true });
+            return true;
+          } else {
+            setStore({ logeado: false });
+            return false;
+          }
+        } catch (error) {
+          console.log("error al cargar", error);
         }
       },
 
