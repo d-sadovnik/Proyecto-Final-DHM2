@@ -1,0 +1,79 @@
+.containerRoutines {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(28, 18, 18);
+  background-size: 100%;
+  transition: 0.8s;
+}
+
+.containerRoutines0 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(119, 125, 10);
+    background-size: 100%;
+    transition: 0.8s;
+  }
+  .containerRoutines1 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(132, 74, 6);
+    background-size: 100%;
+    transition: 0.8s;
+  }
+
+.content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.content .imgDefault {
+  width: 300px;
+  padding: 10px;
+  display: flexbox;
+  margin-left: 120px;
+}
+
+.content .imgDefault .defaultpic {
+    width: 350px;
+    border-style:solid;
+    border-color: white;
+    transition: 0.5s;
+    border-radius:15px ;
+  }
+
+  .content .imgDefault .defaultpic:hover {
+    transform: scale(115%);
+  }
+
+.content .imgFree {
+  width: 300px;
+  padding: 10px;
+  display: flexbox;
+  margin-right: 120px;
+  transition: 0.5s;
+}
+
+.content .imgFree .freepic {
+    width: 350px;
+    border-style:solid;
+    border-color: white;
+    transition: 0.5s;
+    border-radius:15px ;
+  }
+
+  .content .imgFree .freepic:hover {
+    transform: scale(115%);
+  }

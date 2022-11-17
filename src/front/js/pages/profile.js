@@ -15,23 +15,53 @@ export const Profile = () => {
   const { store } = useContext(Context);
   return (
     <>
-      {store.logeado ? (
-        <div
-          className="profilebackground"
-          style={{ backgroundImage: `url(${background})` }}
-        >
-          <hr className="mt-0 mb-4" />
-          <div className="row">
-            <div>
-              {/* <!-- Profile picture card--> */}
-              <div className="card mb-4 mb-xl-0 w-25 mx-auto">
-                <div className="card-header">Profile Picture</div>
-                <div className="card-body text-center">
-                  {/* <!-- Profile picture image--> */}
-                  <img
-                    className="img-account-profile rounded-circle mb-2"
-                    src={avatarpic}
-                    alt=""
+
+    {store.logeado ? (
+    <div
+      className="profilebackground"
+      style={{ backgroundImage: `url(${background})` }}
+    >
+      <hr className="mt-0 mb-4" />
+      <div className="row">
+        <div>
+          {/* <!-- Profile picture card--> */}
+          <div className="card mb-4 mb-xl-0 w-25 mx-auto">
+            <div className="card-header">Profile Picture</div>
+            <div className="card-body text-center">
+              {/* <!-- Profile picture image--> */}
+              <img
+                className="img-account-profile rounded-circle mb-2"
+                src={avatarpic}
+                alt=""
+              />
+              {/* <!-- Profile picture help block--> */}
+              <div className="small font-italic text-muted mb-4">
+                JPG or PNG no larger than 5 MB
+              </div>
+              {/* <!-- Profile picture upload button--> */}
+              <div className="field button-field">
+                <button>Upload new image</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-xl-8 w-75 mx-auto">
+          {/* <!-- Account details card--> */}
+          <div className="card mb-4">
+            <div className="card-header">Account Details</div>
+            <div className="card-body">
+              <form>
+                {/* <!-- Form Group (username)--> */}
+                <div className="mb-3">
+                  <label className="small mb-1" for="inputUsername">
+                    Username (how your name will appear to other users on the
+                    site)
+                  </label>
+                  <input
+                    className="form-control"
+                    id="inputUsername"
+                    type="text"
+                    placeholder="Type your username"
                   />
                   {/* <!-- Profile picture help block--> */}
                   <div className="small font-italic text-muted mb-4">
@@ -200,9 +230,11 @@ export const Profile = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <h1>NO PUEDES ESTAR AQUI</h1>
+      </div>
+    </div>
+    ) : (
+      <h1>NO PUEDES ESTAR AQUI</h1>
       )}
-    </>
+      </>
   );
 };
