@@ -59,11 +59,13 @@ export const Free = () => {
                   <label className="freeLabel" for="biceps">Core</label>
                   <input type="number" id="numberOfexercises" name="numberofexercises" placeholder="#" />
                 </div> */}
-                <Link to="/dayroutine">
+                
                 <div className="free button">
+                <Link to="/dayroutine" className="linktoroutine">
                   <button>Generate Routine</button>
+                  </Link>
                 </div>
-                </Link>
+                
             </div>
         </section>
       </>

@@ -66,6 +66,10 @@
   text-decoration: underline 2px rgba(0, 0, 0, 0.3);
 }
 
+.linktoroutine{
+  text-decoration: none;
+}
+
 .free button {
   background-color: rgb(162, 68, 0);
   transition: all 0.3s ease;
@@ -80,6 +84,7 @@
   border-radius: 20px;
   margin-top: 15px;
   color: #FFF;
+  text-decoration: none;
 }
 
 .free button:hover {
@@ -88,6 +93,7 @@
   font-size: 20px;
   transform: scale(110%);
   text-shadow:2px 2px 10px rgb(234, 255, 0);
+  text-decoration: none;
 }
 
 .freeLabel {
@@ -107,3 +113,4 @@ input[type="checkbox"]:checked~.freeLabel{
   scale: 110%;
   background: none;
 }
+
