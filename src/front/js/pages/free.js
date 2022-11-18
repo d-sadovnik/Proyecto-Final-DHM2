@@ -8,8 +8,26 @@ import "../../styles/free.css";
 
 export const Free = () => {
   const [checkone, setCheckone] = useState(false);
+  const [musculoSelect, setMusculoSelect] = useState(null);
+  const [repeticiones, setRepeticiones] = useState(null);
   const { store, actions } = useContext(Context);
   const params = useParams();
+  const buscarRutinas = (e) => {
+    e.preventDefault();
+    console.log(musculoSelect);
+    console.log(repeticiones);
+
+    actions
+      .get_free_exercise(musculoSelect, repeticiones)
+      .then((resp) => {
+        console.log(resp);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(store.free_exercise);
+  };
+
   useEffect(() => {
     actions.get_muscles();
   }, []);
@@ -24,33 +42,16 @@ export const Free = () => {
           <div className="contentFree">
             <header className="freeHeader">Target Muscles</header>
 
-            <div className="muscles">
-              <input
-                type="checkbox"
-                checked={checkone}
-                onChange={(e) => setCheckone(e.target.checked)}
-                id="muscleCheck"
-                name="interest"
-                value="biceps"
-              />
-              <label className="freeLabel">{store.muscles?.muscle_name}</label>
-              <input
-                type="number"
-                id="numberOfexercises"
-                name="numberofexercises"
-                placeholder="#"
-              />
-            </div>
             <div>
               {store.muscles.map((item, index) => (
                 <div className="muscles">
                   <input
                     type="checkbox"
-                    checked={checkone}
-                    onChange={(e) => setCheckone(e.target.checked)}
+                    // checked={checkone}
+                    onChange={(e) => setMusculoSelect(e.target.value)}
                     id="muscleCheck"
                     name="interest"
-                    value="biceps"
+                    value={item.id}
                   />
                   <label className="freeLabel">{item.muscles}</label>
                   <input
@@ -58,6 +59,7 @@ export const Free = () => {
                     id="numberOfexercises"
                     name="numberofexercises"
                     placeholder="#"
+                    onChange={(e) => setRepeticiones(e.target.value)}
                   />
                 </div>
               ))}
@@ -95,7 +97,7 @@ export const Free = () => {
 
             <div className="free button">
               <Link to="/dayroutine" className="linktoroutine">
-                <button>Generate Routine</button>
+                <button onClick={buscarRutinas}>Generate Routine</button>
               </Link>
             </div>
           </div>

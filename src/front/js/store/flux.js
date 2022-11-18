@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       muscles: [],
       musclegroup: [],
       exercises: [],
+      free_exercise: [],
       demo: [
         {
           title: "FIRST",
@@ -42,6 +43,31 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ muscles: data.muscle });
         } catch (error) {
           console.log("error al cargar get muscles", error);
+        }
+      },
+
+      get_free_exercise: async (id, qty) => {
+        let id_musculo = id;
+        let repeticiones = qty;
+        try {
+          const resp = await fetch(
+            process.env.BACKEND_URL +
+              "/api/listmuscle/" +
+              id_musculo +
+              "/" +
+              repeticiones,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const data = await resp.json();
+          setStore({ free_exercise: data.exercise });
+          console.log(free_exercise);
+        } catch (error) {
+          console.log("error al cargar ejercicios free", error);
         }
       },
 
