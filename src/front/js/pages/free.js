@@ -9,7 +9,7 @@ import "../../styles/free.css";
 export const Free = () => {
   const [checkone, setCheckone] = useState(false);
   const [musculoSelect, setMusculoSelect] = useState(null);
-  const [repeticiones, setRepeticiones] = useState(null);
+  const [repeticiones, setRepeticiones] = useState([]);
   const { store, actions } = useContext(Context);
   const params = useParams();
   const buscarRutinas = (e) => {
@@ -28,10 +28,22 @@ export const Free = () => {
     console.log(store.free_exercise);
   };
 
+  function onInputChange(index, valor) {
+    const newArray = repeticiones.map(obj => {
+      // if name = Wood. Replace this person with someone new
+      if (obj.index === index) {
+        return { id: index, valor: valor };
+      }
+      
+      setRepeticiones((current) => [...current, { id: index, valor: valor }]);
+      console.log(repeticiones);
+    
+  }
   useEffect(() => {
     actions.get_muscles();
   }, []);
   console.log(store.muscles);
+
   return (
     <div>
       <>
@@ -59,7 +71,10 @@ export const Free = () => {
                     id="numberOfexercises"
                     name="numberofexercises"
                     placeholder="#"
-                    onChange={(e) => setRepeticiones(e.target.value)}
+                    min="0"
+                    max="10"
+                    value={repeticiones[index]?.valor}
+                    onChange={(e) => onInputChange(index, e.target.value)}
                   />
                 </div>
               ))}
