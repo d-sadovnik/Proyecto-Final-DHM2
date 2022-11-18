@@ -29,15 +29,8 @@ export const Free = () => {
   };
 
   function onInputChange(index, valor) {
-    const newArray = repeticiones.map(obj => {
-      // if name = Wood. Replace this person with someone new
-      if (obj.index === index) {
-        return { id: index, valor: valor };
-      }
-      
-      setRepeticiones((current) => [...current, { id: index, valor: valor }]);
-      console.log(repeticiones);
-    
+    setRepeticiones((current) => [...current, { id: index, valor: valor }]);
+    console.log(repeticiones);
   }
   useEffect(() => {
     actions.get_muscles();
