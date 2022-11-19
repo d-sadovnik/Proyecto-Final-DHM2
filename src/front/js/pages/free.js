@@ -16,22 +16,43 @@ export const Free = () => {
     e.preventDefault();
     console.log(musculoSelect);
     console.log(repeticiones);
-
-    actions
-      .get_free_exercise(musculoSelect, repeticiones)
-      .then((resp) => {
-        console.log(resp);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    console.log(store.free_exercise);
+    const rutinaLibre = [];
+    repeticiones.forEach((element) => {
+      actions
+        .get_free_exercise(element.id, element.valor)
+        .then((resp) => {
+          rutinaLibre.push(resp);
+          console.log("todos los ejercicios", rutinaLibre);
+          console.log(resp);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   };
 
-  function onInputChange(index, valor) {
-    setRepeticiones((current) => [...current, { id: index, valor: valor }]);
+  const onInputChange = (index, e) => {
+    console.log(index);
+    console.log(e);
+    const actualRepeticiones = repeticiones;
+    let valores = { id: index, valor: e };
+    setRepeticiones((current) =>
+      current.map((obj) => {
+        if (obj.id === index) {
+          return { ...obj, valor: e };
+        }
+
+        return obj;
+      })
+    );
+
+    if (repeticiones == actualRepeticiones) {
+      setRepeticiones((current) => [...current, valores]);
+    }
+
+    // console.log(holaa);
     console.log(repeticiones);
-  }
+  };
   useEffect(() => {
     actions.get_muscles();
   }, []);
@@ -67,7 +88,9 @@ export const Free = () => {
                     min="0"
                     max="10"
                     value={repeticiones[index]?.valor}
-                    onChange={(e) => onInputChange(index, e.target.value)}
+                    onChange={(e) =>
+                      onInputChange(musculoSelect, e.target.value)
+                    }
                   />
                 </div>
               ))}

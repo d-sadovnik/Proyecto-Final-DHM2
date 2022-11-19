@@ -49,6 +49,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       get_free_exercise: async (id, qty) => {
         let id_musculo = id;
         let repeticiones = qty;
+        console.log("musculos desde flux", id_musculo);
+        console.log("repeticiones", repeticiones);
         try {
           const resp = await fetch(
             process.env.BACKEND_URL +
@@ -64,8 +66,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           );
           const data = await resp.json();
+          console.log("data desde flux", data);
           setStore({ free_exercise: data.exercise });
-          console.log(free_exercise);
+          return data.exercise;
         } catch (error) {
           console.log("error al cargar ejercicios free", error);
         }
