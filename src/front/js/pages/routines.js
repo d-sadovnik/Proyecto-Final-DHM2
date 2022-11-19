@@ -20,7 +20,7 @@ export const Routines = () => {
               : "containerRoutines"
           }
         >
-          <div className="content">
+          <div className="contentroutines">
             <div className="imgDefault">
               <Link to="/default">
                 <img
