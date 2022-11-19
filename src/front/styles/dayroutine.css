@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+.containerdayroutine {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(69, 65, 65);
+  background-size: 130%;
+  background-position-y: 700px;
+}
+
+.contentDayroutine{
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 40px;
+  background-color:#FFF;
+  align-items: center;
+  justify-content: center;
+  opacity: 85%;
+  margin-bottom: 20px;
+  margin-top:20px;
+}
+
+.dayroutineLabel {
+  padding: 10px;
+
+}
+
+.muscles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#muscleCheck {
+  height: 30px;
+  width: 30px;
+  margin-top: 7px;
+}
+
+#numberOfexercises {
+  width: 40px;
+  height: 30px;
+  margin-top: 6px;
+}
+
+
+
+.dayroutineHeader {
+  font-size: 35px;
+  font-weight: 600;
+  color: black;
+  text-shadow: 1px 1px 15px rgb(148, 84, 0);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  background-color: none;
+  border-radius: 10px;
+  padding:20px;
+  margin-bottom: 5px;
+  text-decoration: underline 2px rgba(0, 0, 0, 0.3);
+}
+
+.linktoroutine{
+  text-decoration: none;
+}
+
+.dayroutine button {
+  background-color: rgb(162, 68, 0);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  margin-left: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 15px;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.dayroutine button:hover {
+  background-color: rgb(70, 27, 1);
+  color: #fff;
+  font-size: 20px;
+  transform: scale(110%);
+  text-shadow:2px 2px 10px rgb(234, 255, 0);
+  text-decoration: none;
+}
+
+.dayroutineLabel {
+  background:none;
+  opacity:50%;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.84);
+  transition:0.2s;
+  user-select: none;
+  overflow: hidden;
+}
+
+input[type="checkbox"]:checked~.dayroutineLabel{
+  color:rgb(3, 0, 0);
+  font-weight: bolder;
+  text-shadow: 1px 1px 7px 50px #f8be00;
+  opacity: 100%;
+  scale: 110%;
+  background: none;
+}
+
