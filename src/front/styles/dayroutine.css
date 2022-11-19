@@ -8,10 +8,9 @@
   justify-content: center;
   background-color: rgb(69, 65, 65);
   background-size: 100%;
-  background-position-y: -200px;
-  background-position-x: -200px;
   padding-left:50px;
   padding-right:10px;
+
 }
 
 .dayroutineheader{
@@ -32,23 +31,25 @@
 
 .bg-image{
     opacity: 95%;
-    background-position-y: -900px;
+    background-position-y: -300px;
     background-position-x: -500px;
 
 }
 
 .card-title{
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-size: 25px;
     padding: 5px;
     border-radius: 10px;
-    font-weight: bolder;
+    font-weight: 900;
+    font-size: 29px;
 }
 
 .float-end{
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.6);
-    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.817);
+    font-weight: 900;
+    font-size: 17px;
     padding: 10px;
     border-radius: 10px;
 }

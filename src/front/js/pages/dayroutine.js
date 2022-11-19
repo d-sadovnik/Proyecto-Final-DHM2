@@ -1,7 +1,7 @@
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-import background from "./../../img/dayroutine_background.jpg";
-import cardbackground from "./../../img/dark-background-for-home.jpg"
+import background from "./../../img/dark-background-for-home.jpg";
+import cardbackground from "./../../img/dayroutine_background.jpg"
 import React, { useContext, useState } from "react"; 
 import { Link } from "react-router-dom";
 import "../../styles/dayroutine.css";
