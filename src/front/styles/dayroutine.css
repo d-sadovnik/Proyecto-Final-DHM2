@@ -7,110 +7,56 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(69, 65, 65);
-  background-size: 130%;
-  background-position-y: 700px;
+  background-size: 100%;
+  background-position-y: -200px;
+  background-position-x: -200px;
+  padding-left:50px;
+  padding-right:10px;
 }
 
-.contentDayroutine{
-  max-width: 400px;
-  width: 100%;
-  padding: 30px;
-  border-radius: 40px;
-  background-color:#FFF;
-  align-items: center;
-  justify-content: center;
-  opacity: 85%;
-  margin-bottom: 20px;
-  margin-top:20px;
+.dayroutineheader{
+    background-color: rgb(62, 62, 62);
+    margin-bottom: -10px;
 }
 
-.dayroutineLabel {
-  padding: 10px;
+.h1{
+    background-color: black;
+}
+
+.cardStyle{
+    background-color: rgb(187, 137, 0);
+    padding: 10px;
+    opacity: 100%;
+    border-radius: 10px;
+}
+
+.bg-image{
+    opacity: 95%;
+    background-position-y: -900px;
+    background-position-x: -500px;
 
 }
 
-.muscles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card-title{
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bolder;
 }
 
-#muscleCheck {
-  height: 30px;
-  width: 30px;
-  margin-top: 7px;
+.float-end{
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-#numberOfexercises {
-  width: 40px;
-  height: 30px;
-  margin-top: 6px;
+.card-img-top{
+    border-radius: 10px;
 }
 
-
-
-.dayroutineHeader {
-  font-size: 35px;
-  font-weight: 600;
-  color: black;
-  text-shadow: 1px 1px 15px rgb(148, 84, 0);
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 55px;
-  background-color: none;
-  border-radius: 10px;
-  padding:20px;
-  margin-bottom: 5px;
-  text-decoration: underline 2px rgba(0, 0, 0, 0.3);
+.cardStyle .card-img-top{
+    opacity: 100%;
 }
-
-.linktoroutine{
-  text-decoration: none;
-}
-
-.dayroutine button {
-  background-color: rgb(162, 68, 0);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  margin-left: 50px;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  margin-top: 15px;
-  color: #FFF;
-  text-decoration: none;
-}
-
-.dayroutine button:hover {
-  background-color: rgb(70, 27, 1);
-  color: #fff;
-  font-size: 20px;
-  transform: scale(110%);
-  text-shadow:2px 2px 10px rgb(234, 255, 0);
-  text-decoration: none;
-}
-
-.dayroutineLabel {
-  background:none;
-  opacity:50%;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.84);
-  transition:0.2s;
-  user-select: none;
-  overflow: hidden;
-}
-
-input[type="checkbox"]:checked~.dayroutineLabel{
-  color:rgb(3, 0, 0);
-  font-weight: bolder;
-  text-shadow: 1px 1px 7px 50px #f8be00;
-  opacity: 100%;
-  scale: 110%;
-  background: none;
-}
-
