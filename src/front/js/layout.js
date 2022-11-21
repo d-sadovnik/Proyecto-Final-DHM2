@@ -15,6 +15,7 @@ import { Dayroutine } from "./pages/dayroutine";
 import { Default } from "./pages/default";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Historytracker } from "./pages/historytracker";
 import injectContext from "./store/appContext";
 
 //create your first component
@@ -45,7 +46,7 @@ const Layout = () => {
             <Route element={<Free />} path="/free" />
             <Route element={<Default />} path="/default" />
             <Route element={<Dayroutine />} path="/dayroutine" />
-
+            <Route element={<Historytracker />} path="/historytracker" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Navigate to="/" />} path="*" />
           </Routes>

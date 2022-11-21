@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/tracker.css";
 import background from "./../../img/picfondo2.jpg";
+import { Link } from "react-router-dom";
 
 export const Tracker = () => {
   const { store } = useContext(Context);
@@ -138,7 +139,9 @@ export const Tracker = () => {
                       </div>
                       <div className="col-md-6">
                         <div className="field button">
+                        <Link to="/historytracker" className="linktoroutine">
                           <button>View history</button>
+                          </Link>
                         </div>
                       </div>
                     </div>
