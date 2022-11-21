@@ -46,7 +46,7 @@ export const Profile = () => {
             </div>
             <div className="col-xl-8 w-75 mx-auto">
               {/* <!-- Account details card--> */}
-              <div className="card mb-4">
+              <div className="card mb-4 mt-4">
                 <div className="card-header">Account Details</div>
                 <div className="card-body">
                   <form>
