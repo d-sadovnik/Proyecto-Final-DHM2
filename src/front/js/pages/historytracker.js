@@ -2,6 +2,15 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import background from "./../../img/picfondo2.jpg";
+import calories from "./../../img/historytrackericons/calories_icon.png";
+import date from "./../../img/historytrackericons/date_icon.png";
+import routinedescription from "./../../img/historytrackericons/routine_description_icon.png";
+import targetmuscles from "./../../img/historytrackericons/target_muscles_icon.png";
+import distance from "./../../img/historytrackericons/distance_icon.png";
+import duration from "./../../img/historytrackericons/duration_icon.png";
+import heartrate from "./../../img/historytrackericons/heart_rate_icon.png";
+import facilities from "./../../img/historytrackericons/facilities_icon.png";
+import routinetype from "./../../img/historytrackericons/routine_type_icon.png";
 import "../../styles/historytracker.css";
 
 export const Historytracker = () => { 
@@ -21,47 +30,47 @@ export const Historytracker = () => {
 		</thead>
 		<tbody>
 			<tr>
-				<td>Date Icon</td>
+				<td><img src={date} className="tableiconstracker"/></td>
 				<td>Date</td>
 				<td>dd/mm/yy</td>
 			</tr>
 			<tr>
-				<td>Routine description Icon</td>
+				<td><img src={routinedescription} className="tableiconstracker"/></td>
 				<td>Routine Description</td>
 				<td>String</td>
 			</tr>
 			<tr>
-				<td>Target muscles icon</td>
+				<td><img src={targetmuscles} className="tableiconstracker"/></td>
 				<td>Targeted muscles</td>
 				<td>String</td>
 			</tr>
 			<tr>
-				<td>Calories icon</td>
+				<td><img src={calories} className="tableiconstracker"/></td>
 				<td>Calories</td>
 				<td>Integer</td>
 			</tr>
 			<tr>
-				<td>Distance icon</td>
+				<td><img src={distance} className="tableiconstracker"/></td>
 				<td>Distance</td>
 				<td>KM</td>
 			</tr>
 			<tr>
-				<td>Duration icon</td>
+				<td><img src={duration} className="tableiconstracker"/></td>
 				<td>Duration</td>
 				<td>Minutes</td>
 			</tr>
 			<tr>
-				<td>Heart Rate icon</td>
+				<td><img src={heartrate} className="tableiconstracker"/></td>
 				<td>Avg. Heart Rate</td>
 				<td>BPM</td>
 			</tr>
 			<tr>
-				<td>Facilities icon</td>
+				<td><img src={facilities} className="tableiconstracker"/></td>
 				<td>Facilities</td>
 				<td>gym/home/other</td>
 			</tr>
 			<tr>
-				<td>Routine Type icon</td>
+				<td><img src={routinetype} className="tableiconstracker"/></td>
 				<td>Routine Type</td>
 				<td>default/free</td>
 			</tr>
