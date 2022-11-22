@@ -74,24 +74,43 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      get_musclegroup: (id) => {
-        fetch(process.env.BACKEND_URL + "/api/listmusclegroup")
-          .then((resp) => resp.json())
-          .then((resp) => setStore({ musclegroup: resp.result.properties }))
-          .catch((err) => console.error(err));
+      get_musclegroup: async () => {
+        try {
+          const resp = await fetch(
+            process.env.BACKEND_URL + "/api/listmusclegroup",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const data = await resp.json();
+          setStore({ musclegroup: data.muscle_group });
+        } catch (error) {
+          console.log("error al cargar get muscles", error);
+        }
       },
-      get_exercises: (id) => {
-        fetch(process.env.BACKEND_URL + "/api/listexercises")
-          .then((resp) => resp.json())
-          .then((resp) => setStore({ exercises: resp.result.properties }))
-          .catch((err) => console.error(err));
+      get_exercisesbygroup: async (id) => {
+        try {
+          const resp = await fetch(
+            process.env.BACKEND_URL + "/api/musclegroup/" + id,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const data = await resp.json();
+          console.log("data desde flux", data);
+          setStore({ exercises: data.predetermined_exercises });
+          return data.predetermined_exercises;
+        } catch (error) {
+          console.log("error al cargar ejercicios free", error);
+        }
       },
-      get_exermuscleqty: (id) => {
-        fetch(process.env.BACKEND_URL + "/api/listmuscle/<int:id>/<int:qty>")
-          .then((resp) => resp.json())
-          .then((resp) => setStore({ exercises: resp.result.properties }))
-          .catch((err) => console.error(err));
-      },
+
       getMessage: async () => {
         try {
           // fetching data from the backend

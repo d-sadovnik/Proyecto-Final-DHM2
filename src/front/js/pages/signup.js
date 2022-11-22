@@ -33,7 +33,7 @@ export const Signup = () => {
         .signup(body)
         .then((resp) => {
           console.log(resp);
-          // navigate("/login");
+          navigate("/login");
         })
         .catch((error) => {
           console.log(error);

@@ -404,7 +404,7 @@ def get_musclegroup():
         map(lambda muscle_group: muscle_group.serialize(), muscle_group))
 
     response_body = {
-        "Muscle_group": result
+        "muscle_group": result
     }
 
     return jsonify(response_body), 200
