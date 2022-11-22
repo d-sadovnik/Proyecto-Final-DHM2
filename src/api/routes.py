@@ -422,8 +422,8 @@ def get_exercises():
     return jsonify(response_body), 200
 
 
-@api.route('/listmuscle/<int:id>/<int:qty>', methods=['GET'])
-def get_exermuscleqty(id, qty):
+@api.route('/listmuscle/<int:id>', methods=['GET'])
+def get_exermuscle(id):
     exercise = Exercises.query.filter_by(muscle_id=id)
     result = list(map(lambda exercises: exercises.serialize(), exercise))
     muscle_name = Muscles.query.filter_by(id=id)
@@ -431,7 +431,7 @@ def get_exermuscleqty(id, qty):
 
     response_body = {
         "muscle": result2,
-        "exercise": random.sample(result, qty)
+        "exercise": random.sample(result, 4)
     }
 
     return jsonify(response_body), 200

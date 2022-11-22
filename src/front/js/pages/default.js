@@ -12,7 +12,7 @@ export const Default = () => {
       .get_exercisesbygroup(id)
       .then((resp) => {
         console.log("prueba", resp);
-        /*  navigate("/login"); */
+        navigate("/dayroutine");
       })
       .catch((error) => {
         console.log(error);
@@ -20,43 +20,49 @@ export const Default = () => {
   };
   const [groupid, setGroupid] = useState();
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
+
   useEffect(() => {
     actions.get_musclegroup();
   }, []);
   console.log(store.musclegroup);
 
   return (
-    <div>
-      <>
-        <section
-          className="containerdefault"
-          style={{ backgroundImage: `url(${background})` }}
-        >
-          <div className="contentDefault">
-            <header className="defaultHeader">Target Group</header>
+    <>
+      {store.logeado ? (
+        <div>
+          <section
+            className="containerdefault"
+            style={{ backgroundImage: `url(${background})` }}
+          >
+            <div className="contentDefault">
+              <header className="defaultHeader">Target Group</header>
 
-            <div>
-              {store.musclegroup.map((item, index) => (
-                <div className="musclegroup" key={index}>
-                  <input
-                    type="radio"
-                    id="muscleCheck"
-                    name="interest"
-                    value={item.id}
-                    onClick={(e) => setGroupid(e.target.value)}
-                  />
-                  <label className="freeLabel">{item.muscle_group}</label>
-                </div>
-              ))}
+              <div>
+                {store.musclegroup.map((item, index) => (
+                  <div className="musclegroup" key={index}>
+                    <input
+                      type="radio"
+                      id="muscleCheck"
+                      name="interest"
+                      value={item.id}
+                      onClick={(e) => setGroupid(e.target.value)}
+                    />
+                    <label className="freeLabel">{item.muscle_group}</label>
+                  </div>
+                ))}
+              </div>
+              <div className="default button">
+                <button onClick={(e) => buscarRutinas(e, groupid)}>
+                  Generate Routine
+                </button>
+              </div>
             </div>
-            <div className="default button">
-              <button onClick={(e) => buscarRutinas(e, groupid)}>
-                Generate Routine
-              </button>
-            </div>
-          </div>
-        </section>
-      </>
-    </div>
+          </section>
+        </div>
+      ) : (
+        <h1>NO PUEDES ESTAR AQUI</h1>
+      )}
+    </>
   );
 };

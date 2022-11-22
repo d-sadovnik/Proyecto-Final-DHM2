@@ -33,6 +33,9 @@ export const Signup = () => {
         .signup(body)
         .then((resp) => {
           console.log(resp);
+          alert(
+            "Welcome to the Routine Nation World!. Login to Begin the Best Workout Experience"
+          );
           navigate("/login");
         })
         .catch((error) => {

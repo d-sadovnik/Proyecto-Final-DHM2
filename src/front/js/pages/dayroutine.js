@@ -8,6 +8,7 @@ import "../../styles/dayroutine.css";
 
 export const Dayroutine = () => {
   return (
+    
     <div>
       <>
         <section

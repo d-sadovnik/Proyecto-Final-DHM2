@@ -100,7 +100,7 @@ export const Profile = () => {
                         <input
                           className="form-control"
                           id="inputOrgName"
-                          type="text"
+                          type="number"
                           placeholder="Height in CM"
                         />
                       </div>
@@ -112,7 +112,7 @@ export const Profile = () => {
                         <input
                           className="form-control"
                           id="inputLocation"
-                          type="text"
+                          type="number"
                           placeholder="Weight in KG"
                         />
                       </div>
@@ -124,7 +124,7 @@ export const Profile = () => {
                         <input
                           className="form-control"
                           id="inputLocation"
-                          type="text"
+                          type="number"
                           placeholder="Body fat in %"
                         />
                       </div>
@@ -136,7 +136,7 @@ export const Profile = () => {
                         <input
                           className="form-control"
                           id="inputLocation"
-                          type="text"
+                          type="number"
                           placeholder="Muscle mass in KG"
                         />
                       </div>
@@ -175,7 +175,7 @@ export const Profile = () => {
                         <input
                           className="form-control"
                           id="inputBirthday"
-                          type="text"
+                          type="date"
                           name="birthday"
                           placeholder="Type your birthday"
                         />

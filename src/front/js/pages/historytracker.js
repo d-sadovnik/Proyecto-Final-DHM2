@@ -15,6 +15,8 @@ import "../../styles/historytracker.css";
 
 export const Historytracker = () => { 
     return (
+		<>
+		{store.logeado ? (
         <div
           className="supercontainerhistorytracker overflow-auto flex-nowrap"
           style={{ backgroundImage: `url(${background})` }}
@@ -78,6 +80,10 @@ export const Historytracker = () => {
 	</table>
 </div>
 </div>
+) : (
+	<h1>NO PUEDES ESTAR AQUI</h1>
+  )}
+</>
 
     )
 }

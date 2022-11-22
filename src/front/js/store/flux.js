@@ -46,18 +46,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      get_free_exercise: async (id, qty) => {
-        let id_musculo = id;
-        let repeticiones = qty;
+      get_free_exercise: async (id) => {
         console.log("musculos desde flux", id_musculo);
-        console.log("repeticiones", repeticiones);
         try {
           const resp = await fetch(
-            process.env.BACKEND_URL +
-              "/api/listmuscle/" +
-              id_musculo +
-              "/" +
-              repeticiones,
+            process.env.BACKEND_URL + "/api/listmuscle/" + id, 
             {
               method: "GET",
               headers: {
@@ -244,6 +237,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error registro", error);
         }
       },
+      
     },
   };
 };

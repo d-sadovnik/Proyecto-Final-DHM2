@@ -139,8 +139,8 @@ export const Tracker = () => {
                       </div>
                       <div className="col-md-6">
                         <div className="field button">
-                        <Link to="/historytracker" className="linktoroutine">
-                          <button>View history</button>
+                          <Link to="/historytracker" className="linktoroutine">
+                            <button>View history</button>
                           </Link>
                         </div>
                       </div>
