@@ -22,8 +22,8 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto d-flex">
-            {localStorage.getItem("token") ? (
+          {localStorage.getItem("token") ? (
+            <ul className="navbar-nav ms-auto d-flex">
               <li className="nav-item">
                 <button
                   className="nav-link btn btn-black"
@@ -36,37 +36,36 @@ export const Navbar = () => {
                   Log out
                 </button>
               </li>
-            ) : (
-              <>
-                <li>
-                  <Link className="nav-link" aria-current="page" to="/signup">
-                    Signup
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-link" to="/login">
-                    Login
-                  </Link>
-                </li>
-              </>
-            )}
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/routines">
-                Routines
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/tracker">
-                Tracker
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/profile">
-                Profile
-              </Link>
-            </li>
-          </ul>
+              <li className="nav-item">
+                <Link className="nav-link" to="/routines">
+                  Routines
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/tracker">
+                  Tracker
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/profile">
+                  Profile
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <ul className="navbar-nav ms-auto d-flex">
+              <li>
+                <Link className="nav-link" aria-current="page" to="/signup">
+                  Signup
+                </Link>
+              </li>
+              <li>
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </nav>

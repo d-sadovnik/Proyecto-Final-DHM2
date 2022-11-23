@@ -12,8 +12,21 @@ export const Login = () => {
   const [accessToken, setAccessToken] = useState("");
   const navigate = useNavigate();
 
+  const validations = () => {
+    if (email == "" || password == "") {
+      alert("hay campos vacios");
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
+    const respuesta = validations();
+    if (!respuesta) {
+      return null;
+    }
     const body = {
       email: email,
       password: password,

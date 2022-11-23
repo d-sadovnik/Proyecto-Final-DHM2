@@ -18,9 +18,30 @@ export const Signup = () => {
   const [msjError, setMsjError] = useState("");
   const navigate = useNavigate();
 
+  const validations = () => {
+    const emailFormat =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (email == "" || password == "" || password2 == "") {
+      alert("hay campos vacios");
+      return false;
+    } else if (!emailFormat.test(email)) {
+      alert("email invalido");
+      return false;
+    } else if (password.length <= 6) {
+      alert("la contraseña debe contener al menos 6 digitos");
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const onSubmit = (e) => {
     console.log("el boton esta funcionando");
     e.preventDefault();
+    const respuesta = validations();
+    if (!respuesta) {
+      return null;
+    }
     setMsjError("");
     if (password !== password2) {
       alert("Las contraseñas no coinciden");
@@ -62,6 +83,7 @@ export const Signup = () => {
                   className="input"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="field input-field">
@@ -71,6 +93,7 @@ export const Signup = () => {
                   className="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </div>
               <div className="field input-field">
@@ -80,6 +103,7 @@ export const Signup = () => {
                   className="password"
                   value={password2}
                   onChange={(e) => setPassword2(e.target.value)}
+                  required
                 />
               </div>
               <div className="field button-field">

@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
   const { store } = useContext(Context);
+  console.log(store.logeado);
   return (
     <>
       {store.logeado ? (
