@@ -14,6 +14,7 @@ import routinetype from "./../../img/historytrackericons/routine_type_icon.png";
 import "../../styles/historytracker.css";
 
 export const Historytracker = () => { 
+	const { store, actions } = useContext(Context);
     return (
 		<>
 		{store.logeado ? (
